@@ -96,17 +96,18 @@
 // Our custom post type function
 function create_posttype() {
     
-       register_post_type( 'movies',
+       register_post_type( 'Aktiviteter',
        // CPT Options
            array(
                'labels' => array(
-                   'name' => __( 'Movies' ),
-                   'singular_name' => __( 'Movie' )
+                   'name' => __( 'Aktiviteter' ),
+                   'singular_name' => __( 'Aktivitet' )
                ),
                'public' => true,
                'has_archive' => true,
-               'rewrite' => array('slug' => 'movies'),
+               'rewrite' => array('slug' => 'aktiviteter'),
            )
        );
    }
    // Hooking up our function to theme setup
+   add_action( 'init', 'create_posttype' );
