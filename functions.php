@@ -306,4 +306,10 @@
        ));
    }
 
-   
+  function my_afc_google_map_api($api) {
+    $api['key'] = 'AIzaSyCmXiAGHZf5ubJyzKPoJA1RURCB0h1uFYM';
+
+    return $api;
+  } 
+
+  add_filter('acf/fields/google_map/api', 'my_afc_google_map_api');
