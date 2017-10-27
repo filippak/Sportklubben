@@ -14,7 +14,7 @@
 	</a>
 
 	<?php
-	echo post_type();
+	//echo post_type();
 	 if ( is_singular() ) { 
 		echo '</h1>'; 
 	} else { 
