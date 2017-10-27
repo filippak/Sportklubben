@@ -106,6 +106,7 @@
                'public' => true,
                'has_archive' => true,
                'rewrite' => array('slug' => 'aktiviteter'),
+               'taxonomies' => array('category' ),
            )
        );
    }
@@ -120,18 +121,6 @@
            'id' => 'acf_aktivitet',
            'title' => 'Aktivitet',
            'fields' => array (
-               array (
-                   'key' => 'field_59f2d8d3baeb8',
-                   'label' => 'Address',
-                   'name' => 'address',
-                   'type' => 'text',
-                   'default_value' => '',
-                   'placeholder' => '',
-                   'prepend' => '',
-                   'append' => '',
-                   'formatting' => 'html',
-                   'maxlength' => '',
-               ),
                array (
                    'key' => 'field_59f2d6d4109de',
                    'label' => 'Startdatum',
@@ -270,9 +259,10 @@
                    'label' => 'Karta',
                    'name' => 'karta',
                    'type' => 'google_map',
-                   'center_lat' => '',
-                   'center_lng' => '',
+                   'center_lat' => '59.329575',
+                   'center_lng' => '17.983804',
                    'zoom' => '',
+                   'instructions' => 'Skriv in addressen till eventet',
                    'height' => '',
                ),
                array (
@@ -313,3 +303,4 @@
   } 
 
   add_filter('acf/fields/google_map/api', 'my_afc_google_map_api');
+
