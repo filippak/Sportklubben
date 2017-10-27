@@ -122,6 +122,26 @@
 
 		</div>
 
+		<section>
+			<h3>Anmälan:</h3>
+			<form>
+				Förnamn: <br>
+				<input type="text" name ="firstname"> <br>
+				Efternamn: <br>
+				<input type="text" name="lastname"> <br>
+				Email: <br>
+				<input type="email" name="mail"> <br>
+				Personnummer: <br>
+				<input type ="text" name ="pnr"><br>
+				Hemadress:<br>
+				<input type="text" name="homeaddr"><br>
+				Startgrupp:<br>
+				<input type="text" name="startgroup"><br>
+				<input type="submit" value="Submit">				
+			</form>
+		</section>
+
+
 		</article>
 
 		<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js ">
