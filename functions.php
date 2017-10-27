@@ -94,7 +94,7 @@
     }
 
 // Our custom post type function
-function create_posttype() {
+    function create_posttype() {
     
        register_post_type( 'Aktiviteter',
        // CPT Options
@@ -111,3 +111,112 @@ function create_posttype() {
    }
    // Hooking up our function to theme setup
    add_action( 'init', 'create_posttype' );
+
+   include_once('advanced-custom-fields/acf.php');
+
+   function add_aktivitet_fields() {
+        if(function_exists("register_field_group"))
+        {
+            register_field_group(array (
+                'key' => 'acf_aktivitet',
+                'title' => 'Aktivitet',
+                'fields' => array (
+                    array (
+                        'key' => 'field_59f2d8d3baeb8',
+                        'label' => 'Address',
+                        'name' => 'address',
+                        'type' => 'text',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_59f2d6d4109de',
+                        'label' => 'Startdatum',
+                        'name' => 'startdatum',
+                        'type' => 'date_picker',
+                        'date_format' => 'yymmdd',
+                        'display_format' => 'dd/mm/yy',
+                        'first_day' => 1,
+                    ),
+                    array (
+                        'key' => 'field_59f2d7e0109df',
+                        'label' => 'Slutdatum',
+                        'name' => 'slutdatum',
+                        'type' => 'date_picker',
+                        'date_format' => 'yymmdd',
+                        'display_format' => 'dd/mm/yy',
+                        'first_day' => 1,
+                    ),
+                    array (
+                        'key' => 'field_59f2d878baeb6',
+                        'label' => 'Starttid',
+                        'name' => 'starttid',
+                        'type' => 'text',
+                        'instructions' => 'Format: hh:mm',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_59f2d89fbaeb7',
+                        'label' => 'Sluttid',
+                        'name' => 'sluttid',
+                        'type' => 'text',
+                        'instructions' => 'Format: hh:mm',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_59f2d8e9baeb9',
+                        'label' => 'Karta',
+                        'name' => 'karta',
+                        'type' => 'google_map',
+                        'center_lat' => '',
+                        'center_lng' => '',
+                        'zoom' => '',
+                        'height' => '',
+                    ),
+                    array (
+                        'key' => 'field_59f2d913baeba',
+                        'label' => 'Bild',
+                        'name' => 'bild',
+                        'type' => 'image',
+                        'save_format' => 'object',
+                        'preview_size' => 'thumbnail',
+                        'library' => 'all',
+                    ),
+                ),
+                'location' => array (
+                    array (
+                        array (
+                            'param' => 'post_type',
+                            'operator' => '==',
+                            'value' => 'aktiviteter',
+                            'order_no' => 0,
+                            'group_no' => 0,
+                        ),
+                    ),
+                ),
+                'options' => array (
+                    'position' => 'normal',
+                    'layout' => 'no_box',
+                    'hide_on_screen' => array (
+                    ),
+                ),
+                'menu_order' => 0,
+            ));
+        }
+    }
+
+    add_action('acf/init', 'add_aktivitet_fields');
