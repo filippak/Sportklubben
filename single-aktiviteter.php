@@ -1,3 +1,4 @@
+<?php get_header();?>
 <style type="text/css">
 
 .acf-map {
@@ -15,77 +16,78 @@
 </style>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmXiAGHZf5ubJyzKPoJA1RURCB0h1uFYM"></script>
 
-<?php get_header(); 
-			$contact = get_field('kontakt');
-			$contactNo = get_field('kontaktnummer');
-			$contactMail = get_field('kontaktemail');
+<?php
+	$contact = get_field('kontakt');
+	$contactNo = get_field('kontaktnummer');
+	$contactMail = get_field('kontaktemail');
 
-			$website = get_field('hemsida');
+	$website = get_field('hemsida');
 
-			$eventType = get_field('radiobtn');
+	$eventType = get_field('radiobtn');
 
-			$startDate = get_field('startdatum');
-			$endDate =get_field('slutdatum');
-			$startTime = get_field('starttid');
-			$endTime = get_field('sluttid');
+	$startDate = get_field('startdatum');
+	$endDate =get_field('slutdatum');
+	$startTime = get_field('starttid');
+	$endTime = get_field('sluttid');
 
-			$noPeople = get_field('antal');
+	$noPeople = get_field('antal');
 
-			$location = get_field('karta');
-			$address = $location['address'];
-			$img = get_field('bild');
+	$location = get_field('karta');
+	$address = $location['address'];
+	$img = get_field('bild');
 
-			$dateformatstring = "l d F, Y";
-			$unixtimestampStart = strtotime($startDate);
+	$dateformatstring = "l d F, Y";
+	$unixtimestampStart = strtotime($startDate);
 ?>
 <main id="content">
-    <!--<h1>Detta är en aktivitet</h1>-->
+    <h1 class="entry-title">Detta är en aktivitet</h1>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <!--<?php //get_template_part( 'entry' ); ?> -->
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<!--Wrapper-->
+		<!--Wrapper-->
 		<div class="entry-content">
-<!--Kartan-->
-			<?php 
-				if( !empty($location) ):
-				?>
+			<!--Kartan-->
+			<?php if( !empty($location) ): ?>
 				<div class="acf-map">
 					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 				</div>
 			<?php endif; ?>
-<!--Titel-->
+			<!--Titel-->
 			<h1 class="entry-title"> 
-
-			<?php the_title(); ?>	
-
+				<?php the_title(); ?>	
 			</h1>
-<!--Platser kvar-->
-
-				<p>Antal platser kvar:<br> <?php
-				if($noPeople && $noPeople !== '0') :
-					echo $noPeople; 
-				else :
-					echo "Fullt";
-				endif ;
-				 ?></p>
-<!--Datum-->
-				 <?php 
-			 	if($endDate && $startDate !== $endDate): ?>
+			<!--Platser kvar-->
+			<p>Antal platser kvar:<br> 
+				<?php 
+					if($noPeople && $noPeople !== '0') :
+						echo $noPeople; 
+					else :
+						echo "Fullt";
+					endif ;
+				?>
+			</p>
+			<!--Datum-->
+			<?php 
+				if($endDate && $startDate !== $endDate): 
+			?>
 			 		<p>
 					 	Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
-						 <br />
+						<br />
 						<?php $unixtimestampEnd = strtotime($endDate); ?>
 						Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
 					</p>
-			 	<?php else : ?>
-
+			<?php 
+				else : 
+			?>
 			 		<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
-			 	<?php endif; ?>
-<!--Tid -->
-			 	<p>Starttid: <?php echo $startTime; ?> <br />
-				Sluttid: <?php echo $endTime; ?> </p>
-
-<!-- Återkommmande-->
+			<?php 
+				endif;
+			 ?>
+			<!--Tid -->
+			<p>
+				Starttid: <?php echo $startTime; ?> <br />
+				Sluttid: <?php echo $endTime; ?> 
+			</p>
+			<!-- Återkommmande-->
 				<p>Återkommande event:<br> 
 					<?php
 						if($eventType == "Recurring") :
@@ -95,31 +97,30 @@
 						endif; 
 					?>
 				</p>
-
-		<!--Beskrivningstexten: -->
+			<!--Beskrivningstexten: -->
 			<?php the_content(); ?>
-
 			<!--Kontakt: -->
 			<div>
-			<p>Kontaktperson: <?php echo $contact ?> <br />
-			Telefonnummer: <?php echo $contactNo; ?> <br />
-			Email: <?php echo $contactMail ?></p>
+				<p>
+					Kontaktperson: <?php echo $contact ?> <br />
+					Telefonnummer: <?php echo $contactNo; ?> <br />
+					Email: <?php echo $contactMail ?>
+				</p>
 			</div>
-
 			<!--Platsinfo: -->
 			<div>
-			<p>Address: <?php echo $address; ?> </p>
-			
+				<p>Address: <?php echo $address; ?> </p>
 			</div>
 			<div>
-			<p>Hemsida: <a target= "_blacnk" href="<?php echo $website; ?>"><?php echo $website; ?> </a>
-			</p>
+				<p>Hemsida: 
+					<a target= "_blacnk" href="<?php echo $website; ?>"><?php echo $website; ?></a>
+				</p>
 			</div>
 			<!--Bild:-->
 			<div>
 				<p><img src="<?php echo $img['url']; ?>  "></p>
 			</div>
-			
+			<!--Anmälan-->
 			<section>
 				<h3>Anmälan:</h3>
 				<form>
@@ -137,13 +138,11 @@
 					<input type="text" name="startgroup"><br>
 					<input type="submit" value="Submit">				
 				</form>
-				</section>
+			</section>
 
 		</div>
-		</article>
-
-		<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js ">
-		</script>
+	</article>
+	<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js "></script>
     <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
     <?php endwhile; endif; ?>
     <footer class="footer">
