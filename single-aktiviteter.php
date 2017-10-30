@@ -102,11 +102,13 @@
 			</div>
 			<div>
 				<?php 
-				 	if($endDate): ?>
-				 		<p>Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?><br />
-					<!--<?php //if ()?>-->
+				 	if($endDate && $startDate !== $endDate): ?>
+				 		<p>
+						 	Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
+							 <br />
 							<?php $unixtimestampEnd = strtotime($endDate); ?>
-							Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?> </p>
+							Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
+						</p>
 				 	<?php else : ?>
 
 				 		<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
