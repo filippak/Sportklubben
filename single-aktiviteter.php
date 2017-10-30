@@ -23,7 +23,7 @@
 
 	$website = get_field('hemsida');
 
-	$eventType = get_field('radiobtn');
+	$eventType = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 
 	$startDate = get_field('startdatum');
 	$endDate =get_field('slutdatum');
@@ -90,10 +90,41 @@
 			<!-- Återkommmande-->
 				<p>Återkommande event:<br> 
 					<?php
-						if($eventType == "Recurring") :
-							echo "Ja";
-						else :
+						if($eventType == "engangsforeteelse") :
 							echo "Nej";
+						else :
+							//echo $eventType;
+							$recurring = get_field('aterkommande');
+							
+							switch ($recurring) {
+								case 'daily':
+									echo "Dagligen";
+									break;
+								case 'weekly':
+									echo "Veckovis";
+									break;
+								case 'monthly':
+
+									$field = get_field_object("occurence");
+									$value = $field['value'];
+									$labelDay = $field['choices'][$value];
+
+									echo $labelDay;
+
+									$field = get_field_object("manadsvis");
+									$value = $field['value'];
+									$labelDay = $field['choices'][$value];
+
+									echo " " . $labelDay . " varje månad.";
+					
+									break;
+								case 'yearly':
+									echo "Årligen";
+									break;
+								default:
+									echo "Inget valt.";
+									break;
+							}
 						endif; 
 					?>
 				</p>
