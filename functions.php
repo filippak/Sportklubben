@@ -113,6 +113,138 @@
    // Hooking up our function to theme setup
    add_action( 'init', 'create_posttype' );
 
+
+
+	function create_custom_taxonomies() {
+	register_taxonomy(
+		'Bollsport',
+		'aktiviteter',
+		array(
+			'label' => __( 'Bollsport' ),
+			'rewrite' => array( 'slug' => 'bollsport' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'E-sport',
+		'aktiviteter',
+		array(
+			'label' => __( 'E-sport' ),
+			'rewrite' => array( 'slug' => 'e-sport' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Föredrag',
+		'aktiviteter',
+		array(
+			'label' => __( 'Föredrag' ),
+			'rewrite' => array( 'slug' => 'foredrag' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Friluftsliv',
+		'aktiviteter',
+		array(
+			'label' => __( 'Friluftsliv' ),
+			'rewrite' => array( 'slug' => 'friluftsliv' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Konditionsträning',
+		'aktiviteter',
+		array(
+			'label' => __( 'Konditionsträning' ),
+			'rewrite' => array( 'slug' => 'konditionstraning' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Löpning',
+		'aktiviteter',
+		array(
+			'label' => __( 'Löpning' ),
+			'rewrite' => array( 'slug' => 'lopning' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Motionslopp',
+		'aktiviteter',
+		array(
+			'label' => __( 'Motionslopp' ),
+			'rewrite' => array( 'slug' => 'motionslopp' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Prova på!',
+		'aktiviteter',
+		array(
+			'label' => __( 'Prova på!' ),
+			'rewrite' => array( 'slug' => 'prova-pa' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Racketsporter',
+		'aktiviteter',
+		array(
+			'label' => __( 'Racketsporter' ),
+			'rewrite' => array( 'slug' => 'racketsporter' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Styrketräning',
+		'aktiviteter',
+		array(
+			'label' => __( 'Styrketräning' ),
+			'rewrite' => array( 'slug' => 'styrketraning' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Vattensport',
+		'aktiviteter',
+		array(
+			'label' => __( 'Vattensport' ),
+			'rewrite' => array( 'slug' => 'vattensport' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Veckoaktiviteter',
+		'aktiviteter',
+		array(
+			'label' => __( 'Veckoaktiviteter' ),
+			'rewrite' => array( 'slug' => 'veckoaktiviteter' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Vintersport',
+		'aktiviteter',
+		array(
+			'label' => __( 'Vintersport' ),
+			'rewrite' => array( 'slug' => 'vintersport' ),
+			'hierarchical' => false,
+		)
+	);
+		register_taxonomy(
+		'Yoga',
+		'aktiviteter',
+		array(
+			'label' => __( 'Yoga' ),
+			'rewrite' => array( 'slug' => 'yoga' ),
+			'hierarchical' => false,
+		)
+    );
+	}
+
+	   add_action( 'init', 'create_custom_taxonomies' );
    include_once('advanced-custom-fields/acf.php');
 
    if(function_exists("register_field_group"))
