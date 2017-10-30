@@ -165,7 +165,19 @@
                    'formatting' => 'html',
                    'maxlength' => '',
                ),
-               array (
+                array (
+                    'key' => 'field_59f2d89fba123',
+                    'label' => 'Antal platser kvar',
+                    'name' => 'antal',
+                    'type' => 'number',
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'formatting' => 'html',
+                    'maxlength' => '',
+                ),
+                array (
                    'key' => 'field_59f2d89fbaebz',
                    'label' => 'Kontaktperson',
                    'name' => 'kontakt',
