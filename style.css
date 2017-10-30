@@ -1,11 +1,93 @@
 /*
 Theme Name: Sportklubben
 */
+/*****************
+IMPORT font
+*****************/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
 
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}q{display:inline;font-style:italic}q:before{content:'"';font-style:normal}q:after{content:'"';font-style:normal}table{border-collapse:collapse;border-spacing:0}th,td{padding:2px}big{font-size:120%}small,sup,sub{font-size:80%}sup{vertical-align:super}sub{vertical-align:sub}dd{margin-left:20px}kbd,tt{font-family:courier;font-size:12px}ins{text-decoration:underline}del,strike,s{text-decoration:line-through}dt{font-weight:bold}address,cite,var{font-style:italic}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}*{box-sizing:border-box}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline
+	}
+	body {
+		line-height: 1
+	}
+	ol,ul {
+		list-style: none 
+	}
+	blockquote,q {
+		quotes: none
+	}
+	blockquote:before,blockquote:after,q:before,q:after {
+		content: '';
+		content: none 
+	}
+	q {
+		display: inline;
+		font-style: italic
+	}
+	q:before {
+		content: '"';
+		font-style: normal
+	}
+	q:after {
+		content:'"';
+		font-style: normal
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0
+	}
+	th,td {
+		padding: 2px
+	}
+	big {
+		font-size: 120%
+	}
+	small,sup,sub {
+		font-size: 80%
+	}
+	sup {
+		vertical-align: super
+	}
+	sub {
+		vertical-align: sub
+	}
+	dd {
+		margin-left: 20px 
+	}
+	kbd,tt {
+		font-family: 'Ubuntu', verdana, courier;
+		font-size: 12px
+	}
+	ins {
+		text-decoration: underline
+	}
+	del,strike,s {
+		text-decoration: line-through
+	}
+	dt {
+		font-weight: bold
+	}
+	address,cite,var {
+		font-style: italic
+	}
+	article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+		display: block
+	}
+	* {
+		box-sizing:border-box
+	}
 
 body {
-	font-family: georgia,serif;font-size:16px;
+	font-family: 'Ubuntu', verdana,serif;
+	font-size:16px;
 	color: #777;
 	line-height: normal;
 	word-wrap: break-word;
@@ -16,7 +98,7 @@ body {
 	Text format
 *******************/
 h1, h2, h3, h4, h5, h6 { 
-	font-family: helvetica, arial, sans-serif; 
+	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px
 }
@@ -85,7 +167,7 @@ blockquote p:first-of-type {
 	margin-top: 0
 }
 .entry-content ul, .widget-container ul, .comment-body ul, .entry-content ol, .widget-container ol, .comment-body ol {
-	font-family: helvetica, arial, sans-serif;
+	font-family: 'Ubuntu', Verdana, arial, sans-serif;
 	text-indent: -20px; 
 	margin: 30px 0 30px 40px
 }
@@ -268,7 +350,7 @@ table {
 *******************/
 .button, button, input[type="submit"] {
 	display: inline-block; 
-	font-family: georgia,serif;
+	font-family: 'Ubuntu', Verdana,serif;
 	font-size: 18px;
 	color: #fff;
 	text-align: center;
@@ -287,7 +369,7 @@ table {
 	Entry??
 *******************/
 #site-title a{
-	font-family: georgia, serif;
+	font-family: 'Ubuntu', Verdana, serif;
 	font-size: 40px;
 	font-weight: normal;
 	color: #777;
@@ -375,7 +457,7 @@ h2.entry-title, h3.widget-title {
 }
 #nav-above a {
 	display: block;
-	font-family: tahoma, sans-serif;
+	font-family: 'Ubuntu', Verdana, sans-serif;
 	font-size: 50px;
 	color: #777;
 	line-height: 0;
