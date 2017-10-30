@@ -367,6 +367,7 @@ table {
 
 /*******************
 	Entry??
+	TODO ÄNDRA OM TILL SMACCS SÅ GOTT DET GÅR!
 *******************/
 #site-title a{
 	font-family: 'Ubuntu', Verdana, serif;
@@ -374,7 +375,7 @@ table {
 	font-weight: normal;
 	color: #777;
 	text-decoration: none;
-	display: inline
+	display: inline-block;
 }
 #site-title h1 {
 	margin-bottom: 0
@@ -382,6 +383,7 @@ table {
 
 #site-title img {
 	height: 40px;
+	width: auto;
 }
 .single h1.entry-title a {
 	color: #777;
