@@ -105,7 +105,7 @@ blockquote p:first-of-type {
 	margin: 10px 0
 }
 /*******************
-	Gemerella
+	Generella
 *******************/
 input, textarea {
 	padding: 10px; 
@@ -275,7 +275,7 @@ table {
 	text-decoration: none;
 	padding: 10px 15px;
 	border: 0;
-	background: #09f;
+	background: #0ff;
 	opacity: 0.9
 }
 .button:hover, button:hover, input[type="submit"]:hover {
@@ -566,7 +566,7 @@ Klasser för bakgrundsfärger
 	position: absolute !important
 }
 .form-allowed-tags, .search-submit{
-	display: none !important
+	display: none !important;
 }
 
 @media print {
