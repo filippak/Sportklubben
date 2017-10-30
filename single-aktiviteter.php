@@ -51,6 +51,7 @@
 			$startTime = get_field('starttid');
 			$endTime = get_field('sluttid');
 
+			$noPeople = get_field('antal');
 
 			$location = get_field('karta');
 			$address = $location['address'];
@@ -65,9 +66,19 @@
 			//$dag = date_i18n("l", strtotime($startDate));
 
 			?>
+			<!--Antal plastser kvar-->
+			<div>
+				<p>Antal platser kvar:<br> <?php
+				if($noPeople && $noPeople !== '0') :
+					echo $noPeople; 
+				else :
+					echo "Fullt";
+				endif ;
+				 ?></p>
+			</div>
 			<!--Se om recurring => funktionalitet-->
 			<div>
-				<p>Återkommande event: <?php
+				<p>Återkommande event:<br> <?php
 					if($eventType == "Recurring") :
 						echo "Ja";
 					else :
@@ -102,11 +113,13 @@
 			</div>
 			<div>
 				<?php 
-				 	if($endDate): ?>
-				 		<p>Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?><br />
-					<!--<?php //if ()?>-->
+				 	if($endDate && $startDate !== $endDate): ?>
+				 		<p>
+						 	Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
+							 <br />
 							<?php $unixtimestampEnd = strtotime($endDate); ?>
-							Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?> </p>
+							Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
+						</p>
 				 	<?php else : ?>
 
 				 		<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
