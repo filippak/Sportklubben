@@ -379,6 +379,10 @@ table {
 #site-title h1 {
 	margin-bottom: 0
 }
+
+#site-title img {
+	height: 40px;
+}
 .single h1.entry-title a {
 	color: #777;
 	text-decoration: none
