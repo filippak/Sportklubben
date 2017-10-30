@@ -251,43 +251,6 @@
                    'maxlength' => '',
                 ),               
                array (
-                 'key' => 'field_59f3110aca203',
-                 'label' => 'Event Type:',
-                 'name' => 'radiobtn',
-                 'type' => 'radio',
-                 'choices' => array (
-                   'Regular' => 'Regular',
-                   'Recurring' => 'Recurring',
-                 ),
-                 'other_choice' => 0,
-                 'save_other_choice' => 0,
-                 'default_value' => '',
-                 'layout' => 'vertical',
-               ),
-               array (
-                 'key' => 'field_59f31142ca204',
-                 'label' => 'Recurring Event',
-                 'name' => 'recurringevent',
-                 'type' => 'text',
-                 'conditional_logic' => array (
-                   'status' => 1,
-                   'rules' => array (
-                     array (
-                       'field' => 'field_59f3110aca203',
-                       'operator' => '==',
-                       'value' => 'Recurring',
-                     ),
-                   ),
-                   'allorany' => 'all',
-                 ),
-                 'default_value' => '',
-                 'placeholder' => '',
-                 'prepend' => '',
-                 'append' => '',
-                 'formatting' => 'html',
-                 'maxlength' => '',
-               ),
-               array (
                    'key' => 'field_59f2d8e9baeb9',
                    'label' => 'Karta',
                    'name' => 'karta',
@@ -328,6 +291,135 @@
            'menu_order' => 0,
        ));
    }
+
+   if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_engangsforeteelse-eller-aterkommande',
+		'title' => 'Engångsföreteelse eller återkommande?',
+		'fields' => array (
+			array (
+				'key' => 'field_59f7001f4c0a1',
+				'label' => 'Engångsföreteelse eller återkommande aktivitet?',
+				'name' => 'engangsforetelse_eller_aterkommande_aktivitet',
+				'type' => 'radio',
+				'instructions' => 'Om man väljer veckoligen kommer den återskapas samma veckodag varje vecka, om man återskapar den dagligen kommer den läggas in varje dag, inklusive helger.',
+				'choices' => array (
+					'engangsforeteelse' => 'Engångsföreteelse',
+					'aterkommande' => 'Återkommande',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'Engångsföreteelse',
+				'layout' => 'vertical',
+			),
+			array (
+				'key' => 'field_59f700474c0a2',
+				'label' => 'Återkommande',
+				'name' => 'aterkommande',
+				'type' => 'radio',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_59f7001f4c0a1',
+							'operator' => '==',
+							'value' => 'aterkommande',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'choices' => array (
+					'daily' => 'Dagligen',
+					'weekly' => 'Veckovis',
+					'monthly' => 'Månadsvis',
+					'yearly' => 'Årligen',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => '',
+				'layout' => 'horizontal',
+			),
+			array (
+				'key' => 'field_59f73cc5c1be9',
+				'label' => 'Occurence',
+				'name' => 'occurence',
+				'type' => 'radio',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_59f700474c0a2',
+							'operator' => '==',
+							'value' => 'monthly',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'choices' => array (
+					'first' => 'Den Första',
+					'second' => 'Den Andra',
+					'third' => 'Den Tredje',
+					'fourth' => 'Den fjärde',
+					'last' => 'Sista',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => '',
+				'layout' => 'horizontal',
+			),
+
+			array (
+				'key' => 'field_59f7009f4c0a3',
+				'label' => 'Månadsvis',
+				'name' => 'manadsvis',
+				'type' => 'radio',
+				'instructions' => 'Den första ',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_59f700474c0a2',
+							'operator' => '==',
+							'value' => 'monthly',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'choices' => array (
+					'mond' => 'Måndagen',
+					'tues' => 'Tisdagen',
+					'wednes' => 'Onsdagen',
+					'thurs' => 'Torsdagen',
+					'fri' => 'Fredagen',
+					'satur' => 'Lördagen',
+					'sun' => 'Söndagen',
+				),
+				'default_value' => '',
+				'layout' => 'horizontal',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'aktiviteter',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => -1,
+	));
+}
+
 
   function my_afc_google_map_api($api) {
     $api['key'] = 'AIzaSyCmXiAGHZf5ubJyzKPoJA1RURCB0h1uFYM';
