@@ -22,6 +22,11 @@
         wp_enqueue_script( 'jquery' );
         wp_register_script( 'generic-videos', get_template_directory_uri() . '/js/videos.js' );
         wp_enqueue_script( 'generic-videos' );
+
+        //för fixed scrolling:
+        wp_register_script('fixed',  get_template_directory_uri() . '/js/fixed.js');
+        wp_enqueue_script('fixed');
+
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
     }
 

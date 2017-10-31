@@ -7,7 +7,7 @@
 </head>
 <body <?php body_class(); ?>>
     <div class="hfeed l-wrapper">
-        <header class="l-header">
+        <header class="l-header" id ="testHead">
             <div id="branding">
                 <div id="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
