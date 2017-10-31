@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+
+<main class="l-content">
 <?php 
 	// Show the selected frontpage content.
 	$temp = $wp_query; $wp_query= null;
@@ -26,6 +28,8 @@
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 		</nav>
 <?php endif; ?>
+
+</main>
 <?php wp_reset_postdata();?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -8,7 +8,7 @@ window.onload = function() {
 	var fromTop = jQuery(document).scrollTop();
 	var width = jQuery(window).width();
 
-	fixAside(y,fromTop,width);
+	fixAside(y, fromTop, width);
 
 	jQuery(document).scroll(function() {
 
@@ -25,8 +25,10 @@ window.onload = function() {
 function fixAside (y, fromTop, width) {
 	var sidebar = jQuery('.l-sidebar');
 	sidebar = sidebar[0];
-	if(fromTop > y && width > 768) {
+
+	if(fromTop > y && width >= 768) {
 		jQuery(sidebar).addClass("l-sidebar-fix");
+
 	}else {
 		jQuery(sidebar).removeClass("l-sidebar-fix");
 	}
