@@ -48,7 +48,11 @@
 		float: none 
 	}
 }
-
+.l-sidebar-fix {
+	position: fixed;
+	top: 75px;
+	right: 50px;
+}
 .l-sidebar {
 	width: 25%;
 	float: right
