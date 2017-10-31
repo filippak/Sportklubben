@@ -222,32 +222,73 @@ table {
 	max-width: 100%;
 	margin: 0 auto
 }
-.l-header, .l-container, .l-footer {
-	padding: 5%
-}
+
 .l-header {
 	background: #2b0a3d;
+	padding: 5%;
+}
+@media print {
+	.l-header {
+		display: none
+	}
 }
 
 .l-container {
-	background: #fff
+	background: #fff;
+	padding: 5%;
 }
 .l-container:after {
 	display: table;
 	content: "";
 	clear: both
 }
+
 .l-content {
 	width: 75%;
 	padding-right: 5%;
 	float: left
 }
+@media all and (max-width:768px) { 
+	.l-content {
+		width: 100%;
+		padding: 5% 0 
+	}
+}
+@media print {
+	.l-content {
+		width: 100%;
+		color: #000;
+		padding: 0;
+		margin: 0;
+		background: #fff;
+		float: none 
+	}
+}
+
 .l-sidebar {
 	width: 25%;
 	float: right
 }
+@media all and (max-width:768px) {
+	.l-sidebar {
+		width: 100%;
+		padding: 5% 0 
+	}
+}
+@media print {
+	.l-sidebar {
+		display: none
+	}
+}
+
 .l-footer {
-	clear:both
+	clear: both;
+	padding: 5%;
+}
+@media print {
+	.l-footer {
+		display: none
+	}
 }
 /*******************
 	MENU ID
@@ -619,10 +660,6 @@ Klasser för bakgrundsfärger
 	}
 }
 @media all and (max-width:768px) {
-	.l-content, .l-sidebar {
-		width: 100%;
-		padding: 5% 0 
-	}
 	#menu label.toggle {
 		display: block
 	}
@@ -670,18 +707,4 @@ Klasser för bakgrundsfärger
 }
 .form-allowed-tags, .search-submit{
 	display: none !important;
-}
-
-@media print {
-	.l-content {
-		width: 100%;
-		color: #000;
-		padding: 0;
-		margin: 0;
-		background: #fff;
-		float: none 
-	}
-	.l-header, .l-sidebar, .l-footer {
-		display: none
-	}
 }
