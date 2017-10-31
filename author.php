@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="content">
+<main class="l-content">
 <header class="header">
 <?php the_post(); ?>
 <h1 class="entry-title author"><?php esc_html_e( 'Author Archives', 'generic' ); ?>: <?php the_author_link(); ?></h1>

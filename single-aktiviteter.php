@@ -39,7 +39,7 @@
 	$dateformatstring = "l d F, Y";
 	$unixtimestampStart = strtotime($startDate);
 ?>
-<main id="content">
+<main class="l-content">
     <h1 class="entry-title">Detta är en aktivitet</h1>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

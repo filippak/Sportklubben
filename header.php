@@ -6,8 +6,8 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <div id="wrapper" class="hfeed">
-        <header id="header">
+    <div class="hfeed l-wrapper">
+        <header class="l-header">
             <div id="branding">
                 <div id="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
@@ -27,4 +27,4 @@
                 <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
             </nav>
         </header>
-    <div id="container">
+        <div class="l-container">

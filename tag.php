@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="content">
+<main class="l-content">
 <header class="header">
 <h1 class="entry-title"><?php esc_html_e( 'Tag Archives: ', 'generic' ); ?><?php the_archive_title(); ?></h1>
 </header>

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="content">
+<main class="l-content">
 <header class="header">
     <h1 class="entry-title"><?php 
         if ( is_day() ) { printf( esc_html__( 'Daily Archives: %s', 'generic' ), esc_attr( get_the_time( get_option( 'date_format' ) ) ) ); }

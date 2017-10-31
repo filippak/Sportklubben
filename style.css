@@ -128,11 +128,11 @@ p {
 	margin: 30px 0 
 }
 
-.page #content p, .single-post #content p{
+.page .l-content p, .single-post .l-content p{
 	font-size: 18px;
 	line-height: 145%
 }
-* p:last-of-type, #sidebar .widget-container:last-child {
+* p:last-of-type, .l-sidebar .widget-container:last-child {
 	margin-bottom:0
 }
 
@@ -218,39 +218,50 @@ table {
 	  ID??
 *******************/
 
-#wrapper {
+.l-wrapper {
 	max-width: 100%;
 	margin: 0 auto
 }
-#header, #container, #footer {
+.l-header, .l-container, .l-footer {
 	padding: 5%
 }
-#container {
+.l-header {
+	background: #2b0a3d;
+}
+
+.l-container {
 	background: #fff
 }
-#container:after {
+.l-container:after {
 	display: table;
 	content: "";
 	clear: both
 }
-#content {
+.l-content {
 	width: 75%;
 	padding-right: 5%;
 	float: left
 }
-#sidebar {
+.l-sidebar {
 	width: 25%;
 	float: right
 }
-#footer {
+.l-footer {
 	clear:both
 }
 /*******************
 	MENU ID
 *******************/
+
+#branding {
+	display: inline-block;
+}
+
 #menu {
 	margin-top: 20px;
-	z-index: 2147483647
+	z-index: 2147483647;
+	/* display: inline-block; */
+	float: right;
 }
 #menu ul, #menu ul li {
 	display: inline;
@@ -307,12 +318,16 @@ table {
 	text-align: center;
 	line-height: 33.5px
 }
+
+.menu {
+	display: inline-block;
+}
 /**********
 	Sök
 **********/
 #search {
-	float:
-	right
+	float: right;
+	display: inline-block;
 }
 #search .search-field {
 	width: 200px;
@@ -604,7 +619,7 @@ Klasser för bakgrundsfärger
 	}
 }
 @media all and (max-width:768px) {
-	#content, #sidebar {
+	.l-content, .l-sidebar {
 		width: 100%;
 		padding: 5% 0 
 	}
@@ -658,7 +673,7 @@ Klasser för bakgrundsfärger
 }
 
 @media print {
-	#content {
+	.l-content {
 		width: 100%;
 		color: #000;
 		padding: 0;
@@ -666,7 +681,7 @@ Klasser för bakgrundsfärger
 		background: #fff;
 		float: none 
 	}
-	#header, #sidebar, #footer {
+	.l-header, .l-sidebar, .l-footer {
 		display: none
 	}
 }
