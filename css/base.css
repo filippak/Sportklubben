@@ -4,12 +4,12 @@ html {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline
+    vertical-align: baseline;
+    font-family: 'Ubuntu', verdana,serif;
 }
 
 body {
 	line-height: 1;
-	font-family: 'Ubuntu', verdana,serif;
 	font-size:16px;
 	color: #777;
 	line-height: normal;
@@ -309,7 +309,6 @@ kbd {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, courier;
 	font-size: 12px
 }
 
@@ -318,7 +317,6 @@ tt {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, courier;
 	font-size: 12px
 }
 
@@ -653,7 +651,6 @@ h1 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	font-size: 35px
@@ -664,7 +661,6 @@ h2 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	margin-top: 40px;
@@ -676,7 +672,6 @@ h3 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	margin-top: 40px;
@@ -688,7 +683,6 @@ h4 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	margin-top: 40px;
@@ -700,7 +694,6 @@ h5 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	margin-top: 40px;
@@ -712,7 +705,6 @@ h6 {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 	font-weight: bold;
 	margin-bottom: 30px;
 	margin-top: 40px;
@@ -770,7 +762,6 @@ pre {
 	vertical-align: baseline;
 	overflow-x: auto;
 	white-space: pre-wrap;
-	font-family: 'Ubuntu', verdana, arial, sans-serif; 
 }
 
 code {
@@ -780,7 +771,6 @@ code {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'Ubuntu', verdana, arial, sans-serif
 }
 
 hr {
