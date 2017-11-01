@@ -26,5 +26,11 @@
                 <input id="toggle" class="toggle" type="checkbox" />
                 <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
             </nav>
+
         </header>
+
+        <div class = "slider">
+          <?php masterslider(2); ?>
+        </div>
+        
         <div class="l-container">

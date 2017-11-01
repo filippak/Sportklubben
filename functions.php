@@ -8,7 +8,7 @@
         add_theme_support( 'post-thumbnails' );
         add_theme_support( 'html5', array( 'search-form' ) );
         global $content_width;
-        if ( ! isset( $content_width ) ) 
+        if ( ! isset( $content_width ) )
             $content_width = 640;
             register_nav_menus(
                 array( 'main-menu' => esc_html__( 'Main Menu', 'generic' ) )
@@ -102,7 +102,7 @@
 
 // Our custom post type function
     function create_posttype() {
-    
+
        register_post_type( 'Aktiviteter',
        // CPT Options
            array(
@@ -123,7 +123,7 @@
 
 
 	function create_custom_taxonomies() {
-	
+
 	wp_create_category('Bollsport');
 	wp_create_category('E-sport');
 	wp_create_category('Föredrag');
@@ -142,6 +142,7 @@
 
 	   add_action( 'admin_init', 'create_custom_taxonomies' );
    include_once('advanced-custom-fields/acf.php');
+  // include_once('master-slider/master-slider.php');
 
    if(function_exists("register_field_group"))
    {
@@ -256,7 +257,7 @@
                    'append' => '',
                    'formatting' => 'html',
                    'maxlength' => '',
-                ),               
+                ),
                array (
                    'key' => 'field_59f2d8e9baeb9',
                    'label' => 'Karta',
@@ -432,7 +433,6 @@
     $api['key'] = 'AIzaSyCmXiAGHZf5ubJyzKPoJA1RURCB0h1uFYM';
 
     return $api;
-  } 
+  }
 
   add_filter('acf/fields/google_map/api', 'my_afc_google_map_api');
-
