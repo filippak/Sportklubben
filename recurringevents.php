@@ -3,14 +3,14 @@
 <?php get_header(); ?>
  
 <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
+    <main id="main" class="l-content" role="main">
         <?php
 
  
     $temp = $wp_query; $wp_query= null;
     $args = array('posts_per_page=5', '&paged='.$paged, 'post_type' => 'aktiviteter');
     $wp_query = new WP_Query($args); 
-
+    $varCheck = 0;
 
     while ($wp_query->have_posts()) : $wp_query->the_post(); 
                 $eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
@@ -23,7 +23,7 @@
         </h2>
         <?php the_excerpt(); ?>
     <?php 
-        else :
+        $varCheck++;
         endif;
     endwhile;
     if ($paged > 1) :
@@ -36,7 +36,12 @@
 
 
 
- <?php   endif;       ?>
+ <?php   endif; 
+        if ($varCheck == 0) {
+        echo "These are not the events you're looking for.";
+        $varCheck = 0;
+    }
+      ?>
  
     </main><!-- .site-main -->
  
