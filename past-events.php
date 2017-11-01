@@ -1,4 +1,4 @@
-<?php /* Template Name: AterkommandeEvent*/ ?>
+<?php /* Template Name: past-events*/ ?>
  
 <?php get_header(); ?>
  
@@ -13,8 +13,9 @@
 
 
     while ($wp_query->have_posts()) : $wp_query->the_post(); 
-                $eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
-        if($eventTypeForThis == "aterkommande") :  ?>
+    	$thisEndDate = strtotime(get_field('slutdatum'));
+    	$todaysDate = strtotime(date(d.m.y));
+        if($thisEndDate < $todaysDate ) :  ?>
 
         <h2>
             <a href="<?php the_permalink(); ?>" title="Read more">
