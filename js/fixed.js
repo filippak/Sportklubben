@@ -5,6 +5,13 @@ window.onload = function() {
 	var rect = element.getBoundingClientRect();
 	var y =  rect.height;
 
+	var element = jQuery(".slider");
+	element = element[0];
+	var rect = element.getBoundingClientRect();
+	var x =  rect.height;
+
+	y = x+y;
+
 	var elementFoot = jQuery(".l-footer");
 	elementFoot = elementFoot[0];
 	var rectFoot = elementFoot.getBoundingClientRect();
@@ -36,7 +43,7 @@ window.onload = function() {
 		fixAside(y, fromTop, width, footOffset, botSide);
 
 	});
-	
+
 }
 
 
