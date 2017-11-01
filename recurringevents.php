@@ -12,21 +12,10 @@
     $wp_query = new WP_Query($args); 
     $count_posts = wp_count_posts('aktiviteter');
     $varCheck = 0;
-
+    $the_title;
     $arrtest = get_object_vars($count_posts);
 
-    while ($wp_query->have_posts()) : $wp_query->the_post(); 
-        $eventTypeForThis2 = get_field('engangsforetelse_eller_aterkommande_aktivitet');
-        if($eventTypeForThis2 == "aterkommande") :  
-            $varCheck++;
-        else :
-        endif;
-    endwhile;
 
-    if($varCheck == 1) :
-    ?> 
-    <meta http-equiv="refresh" content="0; url=http://localhost:81/wordpress/aktiviteter/<?php the_title(); ?>/" />
-   <?php else :
     while ($wp_query->have_posts()) : $wp_query->the_post(); 
                 $eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
         if($eventTypeForThis == "aterkommande") :  ?>
@@ -48,14 +37,10 @@
             <div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
         </nav>
 
-<?php else : ?>
-        <nav id="nav-posts">
-            <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
-        </nav>
-<?php endif; 
 
 
-    endif;       ?>
+
+ <?php   endif;       ?>
  
     </main><!-- .site-main -->
  
