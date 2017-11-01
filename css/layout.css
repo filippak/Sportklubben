@@ -28,9 +28,10 @@
 }
 
 .l-content {
-	width: 70%;
+	width: 65%;
 	padding-right: 5%;
-	float: left
+	display:inline-block;
+	vertical-align: top;
 }
 @media all and (max-width:768px) { 
 	.l-content {
@@ -50,15 +51,15 @@
 }
 .l-sidebar-fix {
 	position: fixed;
-	top: 100px !important;
-	width: 27% !important;
+	left: 64%;
+	width: 30.5% !important;
+	top: 13.5% !important;
 
 }
 .l-sidebar {
-	width: 30%;
-	float: right;
-	top: -100px;
-	right: 70px;
+	width: 34%;
+	display:inline-block;
+	vertical-align: top;
 }
 @media all and (max-width:768px) {
 	.l-sidebar {
