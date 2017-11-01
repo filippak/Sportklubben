@@ -1,4 +1,5 @@
 <?php get_header();?>
+
 <style type="text/css">
 
 .acf-map {
@@ -21,72 +22,25 @@
 	$contactNo = get_field('kontaktnummer');
 	$contactMail = get_field('kontaktemail');
 
-	$website = get_field('hemsida');
-
 	$eventType = get_field('engangsforetelse_eller_aterkommande_aktivitet');
-
-	$startDate = get_field('startdatum');
-	$endDate =get_field('slutdatum');
-	$startTime = get_field('starttid');
-	$endTime = get_field('sluttid');
-
-	$noPeople = get_field('antal');
 
 	$location = get_field('karta');
 	$address = $location['address'];
 	$img = get_field('bild');
 
-	$dateformatstring = "l d F, Y";
-	$unixtimestampStart = strtotime($startDate);
 ?>
 <main class="l-content">
-    <h1 class="entry-title">Detta är en aktivitet</h1>
+    <!--<h1 class="entry-title">Detta är en aktivitet</h1>-->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!--Wrapper-->
 		<div class="entry-content">
-			<!--Kartan-->
-			<?php if( !empty($location) ): ?>
-				<div class="acf-map">
-					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-				</div>
-			<?php endif; ?>
+			
 			<!--Titel-->
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	
 			</h1>
-			<!--Platser kvar-->
-			<p>Antal platser kvar:<br> 
-				<?php 
-					if($noPeople && $noPeople !== '0') :
-						echo $noPeople; 
-					else :
-						echo "Fullt";
-					endif ;
-				?>
-			</p>
-			<!--Datum-->
-			<?php 
-				if($endDate && $startDate !== $endDate): 
-			?>
-			 		<p>
-					 	Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
-						<br />
-						<?php $unixtimestampEnd = strtotime($endDate); ?>
-						Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
-					</p>
-			<?php 
-				else : 
-			?>
-			 		<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
-			<?php 
-				endif;
-			 ?>
-			<!--Tid -->
-			<p>
-				Starttid: <?php echo $startTime; ?> <br />
-				Sluttid: <?php echo $endTime; ?> 
-			</p>
+			
 			<!-- Återkommmande-->
 				<p>Återkommande event:<br> 
 					<?php
@@ -138,15 +92,8 @@
 					Email: <?php echo $contactMail ?>
 				</p>
 			</div>
-			<!--Platsinfo: -->
-			<div>
-				<p>Address: <?php echo $address; ?> </p>
-			</div>
-			<div>
-				<p>Hemsida: 
-					<a target= "_blacnk" href="<?php echo $website; ?>"><?php echo $website; ?></a>
-				</p>
-			</div>
+
+
 			<!--Bild:-->
 			<div>
 				<p><img src="<?php echo $img['url']; ?>  "></p>
@@ -176,9 +123,10 @@
 	<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js "></script>
     <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
     <?php endwhile; endif; ?>
+</main>
+    <?php include('sidebaraktivitet.php'); ?>
     <footer class="footer">
         <?php get_template_part( 'nav', 'below-single' ); ?>
     </footer>
-</main>
-<?php get_sidebar() ?>
+
 <?php get_footer(); ?>

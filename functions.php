@@ -71,6 +71,8 @@
             'before_title' => '<h3 class="widget-title">',
             'after_title' => '</h3>',
         ) );
+
+
     }
 
     add_action( 'comment_form_before', 'generic_enqueue_comment_reply_script' );
