@@ -1,7 +1,7 @@
 <aside class="l-sidebar">
     <?php if ( is_active_sidebar( 'primary-widget-area' ) ) : ?>
     <!--This is sidebar2-->
-        <div>
+        <div id ="wrapper">
         	<?php
 				$website = get_field('hemsida');
 
@@ -70,6 +70,13 @@
 				Starttid: <?php echo $startTime; ?> <br />
 				Sluttid: <?php echo $endTime; ?> 
 			</p>
+
+	<!--NAV nästa inlägg-->
+			<div>
+       		 	<?php get_template_part( 'nav', 'below-single' ); ?>
+       		</div>
+
         </div>
+        
     <?php endif; ?>
 </aside>

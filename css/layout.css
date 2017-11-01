@@ -28,7 +28,7 @@
 }
 
 .l-content {
-	width: 75%;
+	width: 70%;
 	padding-right: 5%;
 	float: left
 }
@@ -50,12 +50,15 @@
 }
 .l-sidebar-fix {
 	position: fixed;
-	top: 75px;
-	right: 50px;
+	top: 100px !important;
+	width: 27% !important;
+
 }
 .l-sidebar {
-	width: 25%;
-	float: right
+	width: 30%;
+	float: right;
+	top: -100px;
+	right: 70px;
 }
 @media all and (max-width:768px) {
 	.l-sidebar {

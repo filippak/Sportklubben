@@ -123,10 +123,9 @@
 	<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js "></script>
     <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
     <?php endwhile; endif; ?>
-</main>
+
+    </main>
     <?php include('sidebaraktivitet.php'); ?>
-    <footer class="footer">
-        <?php get_template_part( 'nav', 'below-single' ); ?>
-    </footer>
+    
 
 <?php get_footer(); ?>
