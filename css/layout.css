@@ -9,7 +9,7 @@
 
 .l-header {
 	-webkit-transition: padding 2s;
-	transition: padding 1s;
+	transition: padding 0.6s;
 	-webkit-transition-timing-function: ease-in-out;
 	background: #2b0a3d;
 	padding: 5% 5% 0 5%;
@@ -19,7 +19,7 @@
 ;
 }
 .l-header-test {
-	padding:0px !important;
+	padding-top:1% !important;
 }
 @media print {
 	.l-header {
