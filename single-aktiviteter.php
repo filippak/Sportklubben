@@ -52,6 +52,13 @@
 			<?php else : ?>
 				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
 			<?php endif ?>
+			<!--Date-->
+			<time datetime="2014-09-24" class="date-as-calendar position-em size2x">
+				<span class="weekday">Wed</span>
+				<span class="day">24</span>
+				<span class="month">SEP</span>
+				<span class="year">2014</span>
+			</time>
 			<!--Titel-->
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	
