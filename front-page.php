@@ -7,10 +7,10 @@
 	$args = array('posts_per_page=5', '&paged='.$paged, 'post_type' => 'aktiviteter');
 	$wp_query = new WP_Query($args); 
 	while ($wp_query->have_posts()) : $wp_query->the_post(); 
-	$eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
+	$eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 	$thisEndDate = strtotime(get_field('slutdatum'));
     $todaysDate = strtotime(date(d.m.y));
-    if($eventTypeForThis !== "aterkommande" && $thisEndDate > $todaysDate) :  ?>
+    if($eventTypeForThisFront !== "aterkommande" && $thisEndDate > $todaysDate) :  ?>
 
 
 		<h2>
