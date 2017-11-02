@@ -18,10 +18,15 @@
                     Sportklubben Stockholm
                 </div>
             </div>
-            <nav id="menu">
+            <nav class="headerNavMenu">
                 <label class="toggle" for="toggle">&#9776; Menu</label>
                 <input id="toggle" class="toggle" type="checkbox" />
-                <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+                <?php wp_nav_menu( array( 
+                    'theme_location' => 'main-menu',
+                    'container' => 'ul',
+                    'menu_class' => 'headerNavMenu-UlLink',
+                    ) ); 
+                ?>
             </nav>
 
         </header>

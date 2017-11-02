@@ -49,19 +49,10 @@
 		float: none
 	}
 }
-<<<<<<< HEAD
 
-=======
 .sidebarInfo {
 	width: 500px;
 }
-.sidebarBottomFix {
-	vertical-align: bottom;
-}
->>>>>>> 3755b643ceb662efabfa0e59a0672033b806f995
-.l-sidebar-fix {
-	position: fixed;
-	top: 10%;
 }
 .l-sidebar {
 	width: 34%;
