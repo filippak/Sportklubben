@@ -2,8 +2,7 @@
  
 <?php get_header(); ?>
  
-<div id="primary" class="content-area">
-    <main id="main" class="l-content" role="main">
+<main id="main" class="l-content" role="main">
         <?php
 
  
@@ -48,12 +47,10 @@
 
  <?php   endif;       ?>
  
-    </main><!-- .site-main -->
+    </main><!-- .site-main -->    
  
-    <?php get_sidebar( 'content-bottom' ); ?>
- 
-</div><!-- .content-area -->
 
-<?php wp_reset_postdata();?> 
 
+<?php wp_reset_postdata();?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

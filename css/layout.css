@@ -1,5 +1,5 @@
 /*******************
-	  SMACCS LAYOUT
+	SMACCS LAYOUT
 *******************/
 
 .l-wrapper {
@@ -11,7 +11,6 @@
 	-webkit-transition: all 0.3s  ease-in-out;
 	-moz-transition: all 0.3s  ease-in-out;
 	transition: all 0.3s  ease-in-out;
-
 	padding: 1% 5% 0 5%;
 	position: fixed;
 	z-index: 99;
@@ -28,6 +27,8 @@
 }
 
 .l-container {
+	margin: 0 auto;
+	max-width: 960px;
 	background: #fff;
 	padding: 5%;
 }
@@ -38,10 +39,7 @@
 }
 
 .l-content {
-	margin: 0 auto;
-	max-width: 960px;
-	padding-right: 5%;
-	display:block;
+	display:inline-block;
 }
 @media all and (max-width:768px) {
 	.l-content {
