@@ -35,7 +35,8 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!--Wrapper-->
 		<div class="entry-content">
-			
+			<!--Hero bild-->
+			<?php the_post_thumbnail( 'full' ); ?>
 			<!--Titel-->
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	

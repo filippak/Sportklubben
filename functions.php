@@ -114,6 +114,7 @@
                'has_archive' => true,
                'rewrite' => array('slug' => 'aktiviteter'),
                'taxonomies' => array('category' ),
+               'supports' => array('thumbnail')
            )
        );
    }
