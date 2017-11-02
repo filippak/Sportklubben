@@ -1,15 +1,15 @@
 window.onload = function() {
 
-	//ovansida av naven
-	var headerHeight = jQuery(".headerNavMenu").offset().top - jQuery(".headerNavMenu").height();
-	//console.log(headerHeight);
+	//hämta storlek på head
+	var headerHeight = jQuery(".l-header").offset().top;
+
 	//hur långt från top
 	var topp = jQuery(document).scrollTop();
 	var width = jQuery(window).width();
 
 	if(width > 768) {
 		checkHead(topp, headerHeight);
-		
+
 		jQuery(document).scroll(function() {
 			topp = jQuery(document).scrollTop();
 			checkHead(topp, headerHeight)
@@ -20,9 +20,9 @@ window.onload = function() {
 
 function checkHead (topp, headerHeight) {
 	if(topp > headerHeight) {
-		jQuery(".headerNavMenu").addClass("headerNavMenu-fixed");
+		jQuery(".l-header").addClass("l-header-test");
 	} else {
-		jQuery(".headerNavMenu").removeClass("headerNavMenu-fixed");
+		jQuery(".l-header").removeClass("l-header-test");
 	}
 }
 
