@@ -31,5 +31,4 @@
 
 </main>
 <?php wp_reset_postdata();?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
