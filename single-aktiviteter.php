@@ -28,6 +28,17 @@
 	$address = $location['address'];
 	$img = get_field('bild');
 
+	$website = get_field('hemsida');
+	
+	$startDate = get_field('startdatum');
+	$endDate =get_field('slutdatum');
+	$startTime = get_field('starttid');
+	$endTime = get_field('sluttid');
+	$noPeople = get_field('antal');
+
+	$dateformatstring = "l d F, Y";
+	$unixtimestampStart = strtotime($startDate);
+
 ?>
 <main class="l-content">
     <!--<h1 class="entry-title">Detta är en aktivitet</h1>-->
@@ -45,6 +56,12 @@
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	
 			</h1>
+			<div>
+				<p>
+					Tid: <?php echo $startTime . " - " . $endTime; ?> <br>
+					Address: <?php echo $address; ?>
+				</p>
+			</div>
 			
 			<!-- Återkommmande-->
 				<p>Återkommande event:<br> 
@@ -103,6 +120,12 @@
 			<div>
 				<p><img src="<?php echo $img['url']; ?>  "></p>
 			</div>
+			<!--Kartan-->
+			<?php if( !empty($location) ): ?>
+				<div class="acf-map">
+					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+				</div>
+			<?php endif; ?>	
 			<!--Anmälan-->
 			<section>
 				<h3>Anmälan:</h3>
