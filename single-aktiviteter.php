@@ -104,11 +104,13 @@
 			</div>
 			
 			<!-- Återkommmande-->
-			<p>Återkommande event:<br> 
+			<p>
 				<?php
 					if($eventType == "engangsforeteelse") :
-						echo "Nej";
+						
 					else :
+						?>
+						Återkommande: <br><?php
 						//echo $eventType;
 						$recurring = get_field('aterkommande');
 						
