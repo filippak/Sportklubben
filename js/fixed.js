@@ -1,7 +1,7 @@
 window.onload = function() {
 
 	//hämta storlek på head
-	var headerHeight = jQuery(".l-header").offset().top;
+	var headerHeight = jQuery(".l-header").height();
 
 	//hur långt från top
 	var topp = jQuery(document).scrollTop();
@@ -19,10 +19,14 @@ window.onload = function() {
 }
 
 function checkHead (topp, headerHeight) {
+	console.log("tja");
+	console.log(topp);
+	console.log(headerHeight);
 	if(topp > headerHeight) {
-		jQuery(".l-header").addClass("l-header-test");
+		jQuery(".l-header").addClass("isFixed");
+		console.log("hej");
 	} else {
-		jQuery(".l-header").removeClass("l-header-test");
+		jQuery(".l-header").removeClass("isFixed");
 	}
 }
 

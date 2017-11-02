@@ -36,7 +36,7 @@
 	$endTime = get_field('sluttid');
 	$noPeople = get_field('antal');
 
-	$dateformatstring = "l d F, Y";
+	$dateformatstring = "d F, Y";
 	$unixtimestampStart = strtotime($startDate);
 
 ?>
@@ -57,7 +57,7 @@
 			<?php 
 				if($endDate && $startDate === $endDate): 
 			?>
-				<time datetime="2014-09-24" class="calendarDate">
+				<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
 					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
 					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
 					<span class="calendarDate-month"><?php echo date_i18n("M", $startDate);?></span>
@@ -66,7 +66,7 @@
 			<?php
 				else:
 			?>
-				<time datetime="2015-09-24" class="calendarDate">
+				<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
 					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
 					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
 					<span class="calendarDate-month">
