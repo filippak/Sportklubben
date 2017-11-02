@@ -58,52 +58,86 @@
 			</h1>
 			<div>
 				<p>
-					Tid: <?php echo $startTime . " - " . $endTime; ?> <br>
-					Address: <?php echo $address; ?>
+					<i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $startTime . " - " . $endTime; ?> <br>
+					<i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
 				</p>
 			</div>
 			
 			<!-- Återkommmande-->
-				<p>Återkommande event:<br> 
-					<?php
-						if($eventType == "engangsforeteelse") :
-							echo "Nej";
-						else :
-							//echo $eventType;
-							$recurring = get_field('aterkommande');
-							
-							switch ($recurring) {
-								case 'daily':
-									echo "Dagligen";
-									break;
-								case 'weekly':
-									echo "Veckovis";
-									break;
-								case 'monthly':
+			<p>Återkommande event:<br> 
+				<?php
+					if($eventType == "engangsforeteelse") :
+						echo "Nej";
+					else :
+						//echo $eventType;
+						$recurring = get_field('aterkommande');
+						
+						switch ($recurring) {
+							case 'daily':
+								echo "Dagligen";
+								break;
+							case 'weekly':
+								echo "Veckovis";
+								break;
+							case 'monthly':
 
-									$field = get_field_object("occurence");
-									$value = $field['value'];
-									$labelDay = $field['choices'][$value];
+								$field = get_field_object("occurence");
+								$value = $field['value'];
+								$labelDay = $field['choices'][$value];
 
-									echo $labelDay;
+								echo $labelDay;
 
-									$field = get_field_object("manadsvis");
-									$value = $field['value'];
-									$labelDay = $field['choices'][$value];
+								$field = get_field_object("manadsvis");
+								$value = $field['value'];
+								$labelDay = $field['choices'][$value];
 
-									echo " " . $labelDay . " varje månad.";
-					
-									break;
-								case 'yearly':
-									echo "Årligen";
-									break;
-								default:
-									echo "Inget valt.";
-									break;
-							}
-						endif; 
-					?>
+								echo " " . $labelDay . " varje månad.";
+				
+								break;
+							case 'yearly':
+								echo "Årligen";
+								break;
+							default:
+								echo "Inget valt.";
+								break;
+						}
+					endif; 
+				?>
+			</p>
+			<!--Hemsida-->
+			<div>
+				<p>Hemsida: 
+					<a target= "_blacnk" href="<?php echo $website; ?>"><?php echo $website; ?></a>
 				</p>
+			</div>
+
+			<!--Platser kvar-->
+			<p>Antal platser kvar:<br> 
+				<?php 
+					if($noPeople && $noPeople !== '0') :
+						echo $noPeople; 
+					else :
+						echo "Fullt";
+					endif ;
+				?>
+			</p>
+			<!--Datum-->
+			<?php 
+				if($endDate && $startDate !== $endDate): 
+			?>
+			 	<p>
+					Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
+				<br />
+				<?php $unixtimestampEnd = strtotime($endDate); ?>
+				Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
+				</p>
+			<?php 
+				else : 
+			?>
+			 	<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
+			<?php 
+				endif;
+			 ?>
 			<!--Beskrivningstexten: -->
 			<?php the_content(); ?>
 			<!--Kontakt: -->
@@ -151,12 +185,8 @@
 	<script type="text/javascript" src="<?php echo get_home_url();?> /wp-content/themes/Sportklubben/js/googlemaps.js "></script>
     <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
     <?php endwhile; endif; ?>
-		<div>
-       		 <?php get_template_part( 'nav', 'below-single' ); ?>
-     	</div>
-    </main>
-    <?php include('sidebaraktivitet.php'); ?>
-    	<!--NAV nästa inlägg-->
-
-
+	<div>
+			<?php get_template_part( 'nav', 'below-single' ); ?>
+	</div>
+</main>
 <?php get_footer(); ?>
