@@ -30,8 +30,8 @@
 
 	$website = get_field('hemsida');
 	
-	$startDate = get_field('startdatum');
-	$endDate =get_field('slutdatum');
+	$startDate = strtotime(get_field('startdatum'));
+	$endDate =strtotime(get_field('slutdatum'));
 	$startTime = get_field('starttid');
 	$endTime = get_field('sluttid');
 	$noPeople = get_field('antal');
@@ -53,12 +53,45 @@
 				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
 			<?php endif ?>
 			<!--Date-->
-			<time datetime="2014-09-24" class="calendarDate">
-				<span class="calendarDate-weekday">Wed</span>
-				<span class="calendarDate-day">24</span>
-				<span class="calendarDate-month">SEP</span>
-				<span class="calendarDate-year">2014</span>
-			</time>
+			<!--WRITE A TEST CASE FOR THIS-->
+			<?php 
+				if($endDate && $startDate === $endDate): 
+			?>
+				<time datetime="2014-09-24" class="calendarDate">
+					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
+					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
+					<span class="calendarDate-month"><?php echo date_i18n("M", $startDate);?></span>
+					<span class="calendarDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+				</time>
+			<?php
+				else:
+			?>
+				<time datetime="2015-09-24" class="calendarDate">
+					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
+					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
+					<span class="calendarDate-month">
+						<?php 
+							if(date_i18n("M", $startDate) !== date_i18n("M", $endDate)):
+								echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $endDate);
+							else:
+								echo date_i18n("M", $startDate);
+							endif;
+						?>
+					</span>
+					<span class="calendarDate-year">
+						<?php 
+							if(date_i18n("Y", $startDate) !== date_i18n("Y", $endDate)):
+								echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $endDate);
+							else:
+								echo date_i18n("Y", $startDate);
+							endif;
+						?>
+					</span>
+				</time>
+			<?php
+				endif;
+			?>
+			
 			<!--Titel-->
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	

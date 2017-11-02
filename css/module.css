@@ -132,10 +132,10 @@ Single Aktivitet
 	font-size: 0.6125em;
   }
   .calendarDate-day {
-	top: 1.1em;
+	top: 1.2em;
 	font-size: 1.4em
   }
   .calendarDate-year {
 	bottom: 0px;
-	font-size: 0.87750em;
+	font-size: 0.5em;
   }
