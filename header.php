@@ -24,5 +24,42 @@
                 <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
             </nav>
 
-        </header>        
+        </header>
+
+        <div class="bss-slides slideshow">
+          <figure>
+            <img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" width="100%" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/freerider-skiing-ski-sports-47356.jpg'?>" width="100%" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-274506.jpg'?>" width="100%" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-411207.jpeg'?>" width="100%" />
+            <figcaption></figcaption>
+          </figure>
+          <!-- more figures here as needed -->
+        </div>
+
+        <script>
+        var opts = {
+                   //auto-advancing slides? accepts boolean (true/false) or object
+                   auto : {
+                       // speed to advance slides at. accepts number of milliseconds
+                       speed : 7500,
+
+                   }
+                };
+
+
+          makeBSS('.slideshow', opts);
+        </script>
+
+
+
         <div class="l-container">
