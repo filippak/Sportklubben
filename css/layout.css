@@ -8,8 +8,18 @@
 }
 
 .l-header {
+	-webkit-transition: padding 2s;
+	transition: padding 1s;
+	-webkit-transition-timing-function: ease-in-out;
 	background: #2b0a3d;
 	padding: 5% 5% 0 5%;
+	position: fixed;
+	z-index: 99;
+	width: 100%
+;
+}
+.l-header-test {
+	padding:0px !important;
 }
 @media print {
 	.l-header {

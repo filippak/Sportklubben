@@ -4,6 +4,8 @@
 .headerNavMenu {
 	margin-top: 20px;
 	z-index: 2147483647;
+	display: inline-block;
+	float: right;
 }
 
 .headerNavMenu-fixed {
