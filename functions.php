@@ -33,6 +33,7 @@
         wp_register_script('slideshow', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/js/better-simple-slideshow.js');
         wp_enqueue_script('slideshow');
         wp_enqueue_style('slidehow-style', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/css/simple-slideshow-styles.css');
+        wp_enqueue_style( 'load-fa', get_template_directory_uri() . '/font-awesome-4.7.0/css/font-awesome.min.css' );
     }
 
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
