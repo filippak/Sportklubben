@@ -55,5 +55,5 @@
 </div><!-- .content-area -->
 
 <?php wp_reset_postdata();?> 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

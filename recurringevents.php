@@ -45,10 +45,9 @@
  
     </main><!-- .site-main -->
  
-    <?php get_sidebar( 'content-bottom' ); ?>
  
 </div><!-- .content-area -->
 
 <?php wp_reset_postdata();?> 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
