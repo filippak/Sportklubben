@@ -34,9 +34,13 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!--Wrapper-->
-		<div class="entry-content">
+		<div class="entry-content"> 
 			<!--Hero bild-->
-			<?php the_post_thumbnail( 'full' ); ?>
+			<?php if(has_post_thumbnail()) : ?>
+				<?php the_post_thumbnail( 'full' ); ?>
+			<?php else : ?>
+				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
+			<?php endif ?>
 			<!--Titel-->
 			<h1 class="entry-title"> 
 				<?php the_title(); ?>	
