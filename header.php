@@ -30,7 +30,7 @@
         </header>
 
         <div class = "slider">
-          <?php masterslider(2); ?>
+         <!-- <?php //masterslider(2); ?> -->
         </div>
         
         <div class="l-container">

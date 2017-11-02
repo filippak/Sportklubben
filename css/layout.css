@@ -49,12 +49,15 @@
 		float: none 
 	}
 }
+.sidebarInfo {
+	width: 500px;
+}
+.sidebarBottomFix {
+	vertical-align: bottom;
+}
 .l-sidebar-fix {
 	position: fixed;
-	left: 64%;
-	width: 30.5% !important;
-	top: 13.5% !important;
-
+	top: 10%;
 }
 .l-sidebar {
 	width: 34%;

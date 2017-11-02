@@ -1,62 +1,52 @@
 window.onload = function() {
 
-	var element = jQuery(".l-header");
-	element = element[0];
-	var rect = element.getBoundingClientRect();
-	var y =  rect.height;
+	var headerHeight = jQuery(".l-header").offset().height;
 
-	var element = jQuery(".slider");
-	element = element[0];
-	var rect = element.getBoundingClientRect();
-	var x =  rect.height;
+	var bottomInfoActivities = jQuery(".sidebarInfo").offset().top + jQuery(".sidebarInfo").height();
+	var topFooter = jQuery(".l-footer").offset().top;
 
-	y = x+y;
-
-	var elementFoot = jQuery(".l-footer");
-	elementFoot = elementFoot[0];
-	var rectFoot = elementFoot.getBoundingClientRect();
-	var topFoot = rectFoot.top;
-
-	var elementSide = jQuery('.l-sidebar');
-	elementSide = elementSide[0];
-	var rectSide = elementSide.getBoundingClientRect();
-	var botSide = rectSide.bottom;
-
-	var bodyTop = document.body.getBoundingClientRect();
-	bodyTop = bodyTop.top;
-
-	var footOffset = topFoot - bodyTop;
-	console.log(bodyTop);
-	console.log(topFoot);
-	console.log(footOffset);
-
-	var fromTop = jQuery(document).scrollTop();
 	var width = jQuery(window).width();
+	console.log(width);	
 
-	fixAside(y, fromTop, width);
-
-	jQuery(document).scroll(function() {
+	if(width >= 768) {
 
 		var fromTop = jQuery(document).scrollTop();
-		var width = jQuery(window).width();
+		console.log(fromTop);
+		
+		var sidebar = jQuery('.sidebarInfo');
+		sidebar = sidebar[0];
 
-		fixAside(y, fromTop, width, footOffset, botSide);
 
-	});
+		checkFooter(sidebar, topFooter);
+		checkHeader(sidebar, headerHeight);
 
+		jQuery(document).scroll(function() {
+			bottomInfoActivities = jQuery(".sidebarInfo").offset().top + jQuery(".sidebarInfo").height();
+			fromTop = jQuery(document).scrollTop();
+
+			checkFooter(bottomInfoActivities, topFooter)
+			checkHeader(fromTop, headerHeight)
+
+		});
+	}
+		
+
+	
 }
 
+function checkFooter(sidebar, footer) {
+	
+	if(sidebar >= footer) {
+		jQuery(sidebar).addClass("sidebarBottomFix");
+	} else {
+		jQuery(sidebar).removeClass("sidebarBottomFix");
+	}
+}
 
-function fixAside (y, fromTop, width, offset, bottom) {
-	var sidebar = jQuery('.l-sidebar');
-	sidebar = sidebar[0];
+function checkHeader(sidebar, header) {
 
-	if(fromTop > y && width >= 768 && offset > bottom) {
+	if(sidebar <= header) {
 		jQuery(sidebar).addClass("l-sidebar-fix");
-
-	}else if(offset < bottom){
-		jQuery(sidebar).removeClass("l-sidebar-fix");
-		jQuery(sidebar).css("vertical-align", "bottom");
 	} else {
 		jQuery(sidebar).removeClass("l-sidebar-fix");
 	}
