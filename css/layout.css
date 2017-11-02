@@ -33,10 +33,10 @@
 	display:inline-block;
 	vertical-align: top;
 }
-@media all and (max-width:768px) { 
+@media all and (max-width:768px) {
 	.l-content {
 		width: 100%;
-		padding: 5% 0 
+		padding: 5% 0
 	}
 }
 @media print {
@@ -46,9 +46,10 @@
 		padding: 0;
 		margin: 0;
 		background: #fff;
-		float: none 
+		float: none
 	}
 }
+
 .l-sidebar-fix {
 	position: fixed;
 	left: 64%;
@@ -64,7 +65,7 @@
 @media all and (max-width:768px) {
 	.l-sidebar {
 		width: 100%;
-		padding: 5% 0 
+		padding: 5% 0
 	}
 }
 @media print {
