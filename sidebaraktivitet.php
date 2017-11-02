@@ -1,5 +1,5 @@
 <aside class="l-sidebar">
-    <?php if ( is_active_sidebar( 'primary-widget-area' ) ) : ?>
+    <?php //if ( is_active_sidebar( 'primary-widget-area' ) ) : ?>
     <!--This is sidebar2-->
         <div class ="sidebarInfo">
         	<?php
@@ -75,5 +75,5 @@
 
         </div>
         
-    <?php endif; ?>
+    <?php //endif; ?>
 </aside>

@@ -6,22 +6,30 @@ window.onload = function() {
 	var topFooter = jQuery(".l-footer").offset().top;
 
 	var width = jQuery(window).width();
-	console.log(width);	
+	//console.log(width);	
 
 	if(width >= 768) {
-
+		//hur mycket man scrollat
 		var fromTop = jQuery(document).scrollTop();
-		console.log(fromTop);
 		
 		var sidebar = jQuery('.sidebarInfo');
 		sidebar = sidebar[0];
 
+		//Kolla var botten av sidebar
+		bottomInfoActivities = jQuery(".sidebarInfo").offset().top + jQuery(".sidebarInfo").height();
+		console.log(bottomInfoActivities);
 
-		checkFooter(sidebar, topFooter);
-		checkHeader(sidebar, headerHeight);
+		//kolla toppen av sidebar
+		topInfoActivities = jQuery(".sidebarInfo").offset().top;
+		console.log(topInfoActivities);
+		
+		checkFooter(bottomInfoActivities, topFooter);
+		checkHeader(topInfoActivities, headerHeight);
 
 		jQuery(document).scroll(function() {
+			//hur långt ner botten är
 			bottomInfoActivities = jQuery(".sidebarInfo").offset().top + jQuery(".sidebarInfo").height();
+			//hur långt scrollat
 			fromTop = jQuery(document).scrollTop();
 
 			checkFooter(bottomInfoActivities, topFooter)
@@ -29,25 +37,23 @@ window.onload = function() {
 
 		});
 	}
-		
-
 	
 }
 
 function checkFooter(sidebar, footer) {
 	
 	if(sidebar >= footer) {
-		jQuery(sidebar).addClass("sidebarBottomFix");
+		jQuery(".sidebarInfo").addClass("sidebarBottomFix");
 	} else {
-		jQuery(sidebar).removeClass("sidebarBottomFix");
+		jQuery(".sidebarInfo").removeClass("sidebarBottomFix");
 	}
 }
 
 function checkHeader(sidebar, header) {
-
-	if(sidebar <= header) {
-		jQuery(sidebar).addClass("l-sidebar-fix");
+	//
+	if(sidebar >= header) {
+		jQuery(".sidebarInfo").addClass("l-sidebar-fix");
 	} else {
-		jQuery(sidebar).removeClass("l-sidebar-fix");
+		jQuery(".sidebarInfo").removeClass("l-sidebar-fix");
 	}
 }

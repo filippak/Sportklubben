@@ -9,7 +9,7 @@
 
 .l-header {
 	background: #2b0a3d;
-	padding: 5%;
+	padding: 5% 5% 0 5%;
 }
 @media print {
 	.l-header {
