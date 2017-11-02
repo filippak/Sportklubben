@@ -48,7 +48,7 @@ IMPORT font
 	margin-top: 20px;
 	z-index: 2147483647;
 	/* display: inline-block; */
-	float: right;
+	/*float: right; */
 }
 #menu .toggle:hover {
 	cursor: pointer
@@ -65,7 +65,7 @@ IMPORT font
 #menu ul li a {
 	display: inline-block;
 	font-size: 18px;
-	color: #333;
+	color: white;
 	text-decoration: none;
 	line-height: 33px;
 	padding-bottom: 5px;

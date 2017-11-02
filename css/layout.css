@@ -9,7 +9,7 @@
 
 .l-header {
 	background: #2b0a3d;
-	padding: 5%;
+	padding: 5% 5% 0 5%;
 }
 @media print {
 	.l-header {
@@ -33,10 +33,10 @@
 	display:inline-block;
 	vertical-align: top;
 }
-@media all and (max-width:768px) { 
+@media all and (max-width:768px) {
 	.l-content {
 		width: 100%;
-		padding: 5% 0 
+		padding: 5% 0
 	}
 }
 @media print {
@@ -46,15 +46,19 @@
 		padding: 0;
 		margin: 0;
 		background: #fff;
-		float: none 
+		float: none
 	}
 }
+<<<<<<< HEAD
+
+=======
 .sidebarInfo {
 	width: 500px;
 }
 .sidebarBottomFix {
 	vertical-align: bottom;
 }
+>>>>>>> 3755b643ceb662efabfa0e59a0672033b806f995
 .l-sidebar-fix {
 	position: fixed;
 	top: 10%;
@@ -67,7 +71,7 @@
 @media all and (max-width:768px) {
 	.l-sidebar {
 		width: 100%;
-		padding: 5% 0 
+		padding: 5% 0
 	}
 }
 @media print {
