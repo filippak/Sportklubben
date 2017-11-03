@@ -13,6 +13,7 @@
 	$eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 	$thisEndDate = get_field('slutdatum');
     $todaysDate = date(Y.m.d);
+    $varcheck = 0;
 
     if($eventTypeForThisFront !== "aterkommande" && $thisEndDate >= $todaysDate) :  ?>
 
@@ -27,8 +28,12 @@
 		</h2>
 		<?php the_excerpt(); ?>
 <?php 
+	$varcheck++;
 	endif;
 	endwhile;
+	if($varcheck == 0) :
+		echo "Det finns tyvärr inga inplanerade aktiviteter för tillfället. <br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!";
+	endif;
 	if ($paged > 1) :
 ?>
 		<nav id="nav-posts">
