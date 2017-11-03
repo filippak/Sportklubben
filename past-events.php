@@ -21,7 +21,7 @@
         $startDate = strtotime(get_field('startdatum'));
     	$eventTypeForThisPast = get_field('engangsforetelse_eller_aterkommande_aktivitet');
         if($thisEndDate < $todaysDate && $eventTypeForThisPast !== 'aterkommande') :  ?>
-            $thisEndDate =strtotime($thisEndDate);
+            <?php $thisEndDate =strtotime($thisEndDate); ?>
             <h2>
                 <a href="<?php the_permalink(); ?>" title="Read more">
                     <?php the_title(); ?>
