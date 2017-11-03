@@ -101,6 +101,10 @@ IMPORT font
 	cursor: pointer;
 	opacity: 1
 }
+.buttonReadMore {
+	margin-top: 10px;
+	float: right;
+}
 
 /*******************
 	Entry??
