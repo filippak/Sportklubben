@@ -16,23 +16,56 @@
 	while ($wp_query->have_posts()) : $wp_query->the_post(); 
 	$eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 	$thisEndDate = get_field('slutdatum');
+	$startDate = strtotime(get_field('startdatum'));
     $todaysDate = date(Y.m.d);
 
 
     if($eventTypeForThisFront !== "aterkommande" && $thisEndDate >= $todaysDate) :  ?>
-
-
+    	<?php  
+    	$thisEndDate =strtotime($thisEndDate);
+    	?>
 		<h2>
 			<a href="<?php the_permalink(); ?>" title="Read more">
-				<?php the_title(); 
-
-
-				?>
+				<?php the_title(); ?>
 			</a>
 		</h2>
+		<?php 
+				if($thisEndDate && $startDate === $thisEndDate): 
+			?>
+				<p>
+					<?php echo date_i18n("D", $startDate);?>
+					<?php echo date_i18n("j", $startDate);?>
+					<?php echo date_i18n("M", $startDate);?>
+					<?php echo date_i18n("Y", $startDate);?>
+				</p>
+			<?php
+				else:
+			?>
+				<p>
+					<?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
+					<?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
+					<?php 
+						if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
+							echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $thisEndDate);
+						else:
+							echo date_i18n("M", $startDate);
+						endif;
+					?>
+					<?php 
+						if(date_i18n("Y", $startDate) !== date_i18n("Y", $thisEndDate)):
+							echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $thisEndDate);
+						else:
+							echo date_i18n("Y", $startDate);
+						endif;
+					?>
+				</p>
+			<?php
+				endif;
+			?>
 		<?php the_excerpt(); ?>
 		<button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
-<?php 
+		<hr>
+	<?php 
 	$varcheck++;
 	endif;
 	endwhile;
@@ -40,21 +73,17 @@
 		echo "Det finns tyvärr inga inplanerade aktiviteter för tillfället. <br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!";
 	endif;
 	if ($paged > 1) :
-?>
+	?>
 		<nav id="nav-posts">
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 			<div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
 		</nav>
 
-<?php else : ?>
+	<?php else : ?>
 		<nav id="nav-posts">
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 		</nav>
-<?php endif; 
-
-
-
-?>
+	<?php endif; ?>
 
 </main>
 <?php wp_reset_postdata();?>
