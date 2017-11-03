@@ -7,13 +7,11 @@
 	display: inline-block;
 	float: right;
 }
-
 .headerNavMenu-fixed {
 	position: fixed;
 	top: 10px;
 	background: #2b0a3d;
 }
-
 .headerNavMenu.toggle:hover {
 	cursor: pointer
 }
@@ -76,6 +74,48 @@
 
 .menu {
 	display: inline-block;
+}
+
+/******************
+Front page
+******************/
+.slideshow {
+	height: 500px;
+	height:100vh;
+}
+.slideshow-figure {
+	overflow: hidden;
+	height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.slideshow-image {
+	vertical-align: middle;
+	
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+@media all and (max-width:1024px) {
+	.slideshow-image {
+		top: 0;
+		left: 50%;
+		-webkit-transform: translateY(0) translateX(-50%);
+		-ms-transform: translateY(0) translateX(-50%);
+		-o-transform: translateY(0) translateX(-50%);
+		transform: translateY(0) translateX(-50%);
+		max-width: none;
+		height: 100%;
+		width: auto;
+	}
+}
+@media all and (max-width:768px) { 
+	.slideshow {
+		height: 500px;
+	}
 }
 
 /******************

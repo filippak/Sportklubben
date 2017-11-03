@@ -18,7 +18,6 @@
     add_action( 'wp_enqueue_scripts', 'generic_load_scripts' );
     function generic_load_scripts()
     {
-        wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
         wp_enqueue_script( 'jquery' );
         wp_register_script( 'generic-videos', get_template_directory_uri() . '/js/videos.js' );
         wp_enqueue_script( 'generic-videos' );
@@ -30,10 +29,13 @@
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         // För simple-slideshow-styles
+        wp_register_script('hammer', get_template_directory_uri() . '/hammer/hammer.min.js');
+        wp_enqueue_script('hammer');
         wp_register_script('slideshow', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/js/better-simple-slideshow.js');
         wp_enqueue_script('slideshow');
         wp_enqueue_style('slidehow-style', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/css/simple-slideshow-styles.css');
         wp_enqueue_style( 'load-fa', get_template_directory_uri() . '/font-awesome-4.7.0/css/font-awesome.min.css' );
+        wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
     }
 
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
