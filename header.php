@@ -36,7 +36,7 @@
 
 
 <?php if(is_front_page()) :?>
-    <div class="bss-slides slideshow" >
+    <div class="bss-slides slideshow snapScroll" >
         <figure class="slideshow-figure" style="background-image: url(<?php  echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>)">
             <figcaption></figcaption>
         </figure>
@@ -62,5 +62,15 @@
                 };
         makeBSS('.slideshow', opts);
     </script>
+    <script>
+        jQuery(function($) {
+            console.log("hej");
+            $.scrollify({
+                section : ".snapScroll",
+                offset : -80,
+                standardScrollElements : ".l-container"
+            });
+        });
+    </script>
  <?php endif;?>
-<div class="l-container">
+<div class="l-container snapScroll">

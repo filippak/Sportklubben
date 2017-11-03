@@ -28,14 +28,20 @@
 
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
-        // För simple-slideshow-styles
+        //Swiping
         wp_register_script('hammer', get_template_directory_uri() . '/assets/hammer/hammer.min.js');
         wp_enqueue_script('hammer');
+        // För simple-slideshow-styles
         wp_register_script('slideshow', get_template_directory_uri() . '/assets/better-simple-slideshow-gh-pages/js/better-simple-slideshow.js');
         wp_enqueue_script('slideshow');
         wp_enqueue_style('slidehow-style', get_template_directory_uri() . '/assets/better-simple-slideshow-gh-pages/css/simple-slideshow-styles.css');
+
+        //Ikoner
         wp_enqueue_style( 'load-fa', get_template_directory_uri() . '/assets/font-awesome-4.7.0/css/font-awesome.min.css' );
         wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
+
+        wp_register_script('scrollify', get_template_directory_uri() . '/assets/scrollify/jquery.scrollify.min.js');
+        wp_enqueue_script('scrollify');
     }
 
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
