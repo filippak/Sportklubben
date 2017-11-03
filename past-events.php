@@ -26,6 +26,7 @@
             </a>
         </h2>
         <?php the_excerpt(); ?>
+        <button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
     <?php 
     	$varCheck++;
        endif;
