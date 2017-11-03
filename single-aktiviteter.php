@@ -25,7 +25,10 @@
 	$eventType = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 
 	$location = get_field('karta');
-	$address = $location['address'];
+	if($location):
+		$address = $location['address'];
+	endif;	
+
 	$img = get_field('bild');
 
 	$website = get_field('hemsida');
@@ -45,63 +48,59 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!--Wrapper-->
-		<div class="entry-content"> 
-			<!--Hero bild-->
+		<!--Hero bild-->
+		<div class="activityHeader">
 			<?php if(has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail( 'full' ); ?>
 			<?php else : ?>
 				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
 			<?php endif ?>
 			<!--Date-->
-			<!--WRITE A TEST CASE FOR THIS-->
-			<?php 
-				if($endDate && $startDate === $endDate): 
-			?>
-				<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
-					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
-					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
-					<span class="calendarDate-month"><?php echo date_i18n("M", $startDate);?></span>
-					<span class="calendarDate-year"><?php echo date_i18n("Y", $startDate);?></span>
-				</time>
-			<?php
-				else:
-			?>
-				<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
-					<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
-					<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
-					<span class="calendarDate-month">
-						<?php 
-							if(date_i18n("M", $startDate) !== date_i18n("M", $endDate)):
-								echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $endDate);
-							else:
-								echo date_i18n("M", $startDate);
-							endif;
-						?>
-					</span>
-					<span class="calendarDate-year">
-						<?php 
-							if(date_i18n("Y", $startDate) !== date_i18n("Y", $endDate)):
-								echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $endDate);
-							else:
-								echo date_i18n("Y", $startDate);
-							endif;
-						?>
-					</span>
-				</time>
-			<?php
-				endif;
-			?>
-			
-			<!--Titel-->
-			<h1 class="entry-title"> 
-				<?php the_title(); ?>	
-			</h1>
-			<div>
-				<p>
-					<i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $startTime . " - " . $endTime; ?> <br>
-					<i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
-				</p>
+			<div class="activityInfo ">
+				<?php if($endDate && $startDate === $endDate): ?>
+					<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
+						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
+						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
+						<span class="calendarDate-month"><?php echo date_i18n("M", $startDate);?></span>
+						<span class="calendarDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+					</time>
+				<?php else: ?>
+					<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
+						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
+						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
+						<span class="calendarDate-month">
+							<?php 
+								if(date_i18n("M", $startDate) !== date_i18n("M", $endDate)):
+									echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $endDate);
+								else:
+									echo date_i18n("M", $startDate);
+								endif;
+							?>
+						</span>
+						<span class="calendarDate-year">
+							<?php 
+								if(date_i18n("Y", $startDate) !== date_i18n("Y", $endDate)):
+									echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $endDate);
+								else:
+									echo date_i18n("Y", $startDate);
+								endif;
+							?>
+						</span>
+					</time>
+				<?php endif; ?>
+				<!--Titel-->
+				<div class="activityTitleTime">
+					<h1 class="activityTitleTime-title"> 
+						<?php the_title(); ?>	
+					</h1>
+					<p class="activityTitleTime-time">
+						<i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $startTime . " - " . $endTime; ?> <br>
+						<i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
+					</p>
+				</div>
 			</div>
+		</div>
+		<div class="entry-content singleActivityInfo"> 
 			
 			<!-- Återkommmande-->
 			<p>

@@ -121,11 +121,23 @@ Front page
 /******************
 Single Aktivitet
 ******************/
+.singleActivityInfo {
+	position: relative;
+	top: 96px;
+}
+
+.activityInfo {
+	position: absolute;
+	-webkit-transform: translateY(-96px);
+	-ms-transform: translateY(-96px);
+	-o-transform: translateY(-96px0);
+	transform: translateY(-96px);
+}
 .calendarDate {
 	font-variant: normal;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 32px;
+	font-size: 48px;
 
 	vertical-align: top;
   
@@ -142,9 +154,8 @@ Single Aktivitet
 	width: 4em; 
 	height: 4em;
 
-	-ms-transform: translate(32px, -64px); /* IE 9 */
-    -webkit-transform: translate(32px, -64px); /* Safari */
-    transform: translate(32px, -64px);
+	margin-left: 32px;
+	margin-right: 32px;
   }
   .calendarDate-weekday,
   .calendarDate-day,
@@ -159,7 +170,6 @@ Single Aktivitet
 	width: 100%;
 	height: 1.1em;
   }
-
   .calendarDate-month {
 	top: 0px;
 	font-size: 0.6em;
@@ -180,4 +190,17 @@ Single Aktivitet
   .calendarDate-year {
 	bottom: 0px;
 	font-size: 0.5em;
+  }
+  .activityTitleTime {
+	  display: inline-block;
+	  margin-top: 96px;
+  }
+  .activityTitleTime-title {
+	  margin-bottom: 0;
+  }
+  .activityTitleTime-time {
+	  margin: 0;
+  }
+  .activityTitleTime-time i {
+	  margin-right: 5px;
   }

@@ -734,7 +734,10 @@ a {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	color: #09f
+	color: #0070ad
+}
+a:hover {
+	color: #76abdb
 }
 a img {
 	border: 0 none
