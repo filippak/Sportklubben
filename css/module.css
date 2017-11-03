@@ -123,7 +123,7 @@ Single Aktivitet
 ******************/
 .singleActivityInfo {
 	position: relative;
-	top: 96px;
+	margin-top: 128px;
 }
 
 .activityInfo {
