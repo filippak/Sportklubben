@@ -29,6 +29,8 @@
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         // För simple-slideshow-styles
+        wp_register_script('hammer', get_template_directory_uri() . '/hammer/hammer.min.js');
+        wp_enqueue_script('hammer');
         wp_register_script('slideshow', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/js/better-simple-slideshow.js');
         wp_enqueue_script('slideshow');
         wp_enqueue_style('slidehow-style', get_template_directory_uri() . '/better-simple-slideshow-gh-pages/css/simple-slideshow-styles.css');

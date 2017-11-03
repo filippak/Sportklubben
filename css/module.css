@@ -85,7 +85,9 @@ Front page
 }
 .slideshow-figure {
 	overflow: hidden;
-	height: 100%
+	height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 .slideshow-image {
 	vertical-align: middle;
@@ -97,10 +99,7 @@ Front page
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-@media all and (max-width:768px) { 
-	.slideshow {
-		height: 500px;
-	}
+@media all and (max-width:1024px) {
 	.slideshow-image {
 		top: 0;
 		left: 50%;
@@ -111,6 +110,11 @@ Front page
 		max-width: none;
 		height: 100%;
 		width: auto;
+	}
+}
+@media all and (max-width:768px) { 
+	.slideshow {
+		height: 500px;
 	}
 }
 

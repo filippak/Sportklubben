@@ -35,42 +35,32 @@
 
 
 
-<?php if(is_front_page()) :
-
-?>
-    <div class="bss-slides slideshow">
-  <figure class="slideshow-figure">
-    <img class="slideshow-image" src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" width="100%" />
-    <figcaption></figcaption>
-  </figure>
-  <figure  class="slideshow-figure">
-    <img class="slideshow-image" src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/freerider-skiing-ski-sports-47356.jpg'?>" width="100%" />
-    <figcaption></figcaption>
-  </figure>
-  <figure class="slideshow-figure">
-    <img class="slideshow-image" src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-274506.jpg'?>" width="100%" />
-    <figcaption></figcaption>
-  </figure>
-  <figure class="slideshow-figure">
-    <img class="slideshow-image" src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-411207.jpeg'?>" width="100%" />
-    <figcaption></figcaption>
-  </figure>
-  <!-- more figures here as needed -->
-</div>
-
-<script>
-var opts = {
-           //auto-advancing slides? accepts boolean (true/false) or object
-           auto : {
-               // speed to advance slides at. accepts number of milliseconds
-               speed : 7500,
-
-           }
-        };
-
-
-  makeBSS('.slideshow', opts);
-</script>
- <?php
- endif;?>
-        <div class="l-container">
+<?php if(is_front_page()) :?>
+    <div class="bss-slides slideshow" >
+        <figure class="slideshow-figure" style="background-image: url(<?php  echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>)">
+            <figcaption></figcaption>
+        </figure>
+        <figure  class="slideshow-figure" style="background-image: url(<?php  echo get_template_directory_uri() . '/images/Sliderfoton/freerider-skiing-ski-sports-47356.jpg'?>)">
+            <figcaption></figcaption>
+        </figure>
+        <figure class="slideshow-figure" style="background-image: url(<?php  echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-274506.jpg'?>)">
+            <figcaption></figcaption>
+        </figure>
+        <figure class="slideshow-figure" style="background-image: url(<?php  echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-411207.jpeg'?>)">
+            <figcaption></figcaption>
+        </figure>
+        <!-- more figures here as needed -->
+    </div>
+    <script>
+        var opts = {
+                //auto-advancing slides? accepts boolean (true/false) or object
+                auto : {
+                    // speed to advance slides at. accepts number of milliseconds
+                    speed : 7500,
+                },
+                swipe : true
+                };
+        makeBSS('.slideshow', opts);
+    </script>
+ <?php endif;?>
+<div class="l-container">
