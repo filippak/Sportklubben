@@ -62,7 +62,8 @@
             ?>
         <?php the_excerpt(); ?>
         <button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
-    <?php 
+        <hr>
+        <?php 
     	$varCheck++;
        endif;
     endwhile;

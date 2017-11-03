@@ -64,7 +64,8 @@
 			?>
 		<?php the_excerpt(); ?>
 		<button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
-<?php 
+		<hr>
+	<?php 
 	$varcheck++;
 	endif;
 	endwhile;
@@ -72,21 +73,17 @@
 		echo "Det finns tyvärr inga inplanerade aktiviteter för tillfället. <br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!";
 	endif;
 	if ($paged > 1) :
-?>
+	?>
 		<nav id="nav-posts">
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 			<div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
 		</nav>
 
-<?php else : ?>
+	<?php else : ?>
 		<nav id="nav-posts">
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 		</nav>
-<?php endif; 
-
-
-
-?>
+	<?php endif; ?>
 
 </main>
 <?php wp_reset_postdata();?>

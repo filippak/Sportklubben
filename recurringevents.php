@@ -12,8 +12,9 @@
     $wp_query = new WP_Query($args); 
     $varCheck = 0;
 
-    while ($wp_query->have_posts()) : $wp_query->the_post(); 
-                $eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
+    while ($wp_query->have_posts()) : 
+        $wp_query->the_post(); 
+        $eventTypeForThis = get_field('engangsforetelse_eller_aterkommande_aktivitet');
         if($eventTypeForThis == "aterkommande") :  ?>
 
         <h2>
@@ -23,6 +24,7 @@
         </h2>
         <?php the_excerpt(); ?>
         <button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
+        <hr>
     <?php 
         $varCheck++;
         endif;
