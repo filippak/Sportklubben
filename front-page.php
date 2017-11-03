@@ -1,7 +1,4 @@
 <?php get_header(); ?>
-
-
-
 <main class="l-content">
 <?php 
 
