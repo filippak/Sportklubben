@@ -76,7 +76,7 @@ figcaption {
   opacity: 1;
 }
 .bss-next{
-  right: -1px;
+  right: 0;
   padding: 10px 5px 15px 10px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
