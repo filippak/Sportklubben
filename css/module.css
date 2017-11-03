@@ -28,7 +28,7 @@
 .headerNavMenu-UlLink li a {
 	display: inline-block;
 	font-size: 18px;
-	color: white;
+	color: #0070ad;
 	text-decoration: none;
 	line-height: 33px;
 	padding-bottom: 5px;
@@ -36,7 +36,7 @@
 	margin-right: 15px
 }
 .headerNavMenu-UlLink li a:hover { 
-	color: #777;
+	color: #12abdb;
 	text-decoration: none
 }
 .headerNavMenu li ul {

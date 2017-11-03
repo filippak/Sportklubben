@@ -17,7 +17,8 @@
     while ($wp_query->have_posts()) : $wp_query->the_post(); 
     	$thisEndDate = strtotime(get_field('slutdatum'));
     	$todaysDate = strtotime(date(d.m.y));
-        if($thisEndDate < $todaysDate ) :  ?>
+    	$eventTypeForThisPast = get_field('engangsforetelse_eller_aterkommande_aktivitet');
+        if($thisEndDate < $todaysDate && $eventTypeForThisPast !== 'aterkommande') :  ?>
 
         <h2>
             <a href="<?php the_permalink(); ?>" title="Read more">
@@ -25,6 +26,7 @@
             </a>
         </h2>
         <?php the_excerpt(); ?>
+        <button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
     <?php 
     	$varCheck++;
        endif;
