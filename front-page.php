@@ -9,11 +9,15 @@
 	$temp = $wp_query; $wp_query= null;
 	$args = array('posts_per_page=5', '&paged='.$paged, 'post_type' => 'aktiviteter');
 	$wp_query = new WP_Query($args); 
+	$varcheck = 0;
+
+
+	
 	while ($wp_query->have_posts()) : $wp_query->the_post(); 
 	$eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 	$thisEndDate = get_field('slutdatum');
     $todaysDate = date(Y.m.d);
-    $varcheck = 0;
+
 
     if($eventTypeForThisFront !== "aterkommande" && $thisEndDate >= $todaysDate) :  ?>
 
@@ -46,7 +50,11 @@
 		<nav id="nav-posts">
 			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 		</nav>
-<?php endif; ?>
+<?php endif; 
+
+
+
+?>
 
 </main>
 <?php wp_reset_postdata();?>
