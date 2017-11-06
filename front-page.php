@@ -6,24 +6,13 @@
 	$temp = $wp_query; $wp_query= null;
 	$args = array('posts_per_page=5', '&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter');
 	$wp_query = new WP_Query($args); 
-	$varcheck2 = 0;
+	$varcheckweek = 0;
+	$varcheckmonth = 0;
+	$varcheckelse = 0;
 	$posts = get_posts( $args );
 			$dateToday = new DateTime(date(Y.m.d));
 		$weekToday = $dateToday->format("W");
 
-	foreach( $posts as $post ) : setup_postdata( $post );
-
-		$dateTest = new DateTime(get_field('startdatum'));
-		$weekTest = $dateTest->format("W");
-		if($weekToday == $weekTest && $varcheck == 0) 
-		{
-			?>
-			<h2>Den här veckan:</h2>
-			<?php $varcheck++;
-		}
-
-	wp_reset_postdata(); 
-	endforeach;
 
 	$varcheck = 0;
 	while ($wp_query->have_posts()) : $wp_query->the_post(); 
@@ -31,28 +20,57 @@
 	$thisEndDate = get_field('slutdatum');
 	$startDate = strtotime(get_field('startdatum'));
     $todaysDate = date(Y.m.d);
-
 	$dateTest = new DateTime(get_field('startdatum'));
 	$weekTest = $dateTest->format("W");
+	
 
     if($eventTypeForThisFront !== "aterkommande" && $thisEndDate >= $todaysDate) :  ?>
     	<?php  
     	$thisEndDate =strtotime($thisEndDate);
+    	
+
+    	if ($thisEndDate <= strtotime('30 days') && $varcheckmonth == 0) {
+    		if ($weekToday == $weekTest && $varcheckweek == 0) {
+    		?> 	
+    		<h2>Den här veckan:</h2>
+
+    		<?php $varcheckweek++;
+    		}
+    		else{
+    			?>
+    			<h2>Kommande månaden:</h2>
+    			<?php	
+    			$varcheckmonth++;
+    		}
+    	}
+    	if($thisEndDate > strtotime('30 days') && $varcheckelse == 0 && $varcheckmonth > 0 && $varcheckweek > 0)
+    	{
+    		if($varcheckmonth > 0 && $varcheckweek > 0){
+    		$varcheckelse++;
     	?>
+    	<h2>Ännu senare: </h2>
+    	<?php } }
+    	?>
+
+
 		<h2>
 			<a href="<?php the_permalink(); ?>" title="Read more">
 				<?php the_title(); ?>
 			</a>
 		</h2>
 		<?php 
-
-								
-						if($weekToday == $weekTest && $varcheck2 == 0) 
+						if ($thisEndDate < strtotime('30 days'))
 						{
+							if($weekToday == $weekTest) 
+							{
 							
-							echo ("Den här veckan!");
-							$varcheck2++;
+								echo ("Den här veckan!");
+							}
+							else{
+								echo ("Inom en månad!");
+							}
 						}
+
 
 				if($thisEndDate && $startDate === $thisEndDate): 
 			?>
