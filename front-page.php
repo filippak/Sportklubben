@@ -4,7 +4,13 @@
 
 	// Show the selected frontpage content.
 	$temp = $wp_query; $wp_query= null;
-	$args = array('posts_per_page=5', '&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter');
+	$args = array('posts_per_page=5', '&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter', 'meta_query' => array(
+		array(
+			'key'     => 'engangsforetelse_eller_aterkommande_aktivitet',
+			'value'   => 'engangsforeteelse',
+			'compare' => 'EXISTS',
+		),
+	),);
 	$wp_query = new WP_Query($args); 
 	$varcheckweek = 0;
 	$varcheckmonth = 0;
@@ -36,7 +42,7 @@
 
     		<?php $varcheckweek++;
     		}
-    		else{
+    		elseif($weekToday !== $weekTest){
     			?>
     			<h2>Kommande månaden:</h2>
     			<?php	
