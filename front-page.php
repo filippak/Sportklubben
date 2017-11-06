@@ -10,11 +10,11 @@
 	$varcheckmonth = 0;
 	$varcheckelse = 0;
 	$posts = get_posts( $args );
-			$dateToday = new DateTime(date(Y.m.d));
-		$weekToday = $dateToday->format("W");
-
-
+	$dateToday = new DateTime(date(Y.m.d));
+	$weekToday = $dateToday->format("W");
 	$varcheck = 0;
+
+
 	while ($wp_query->have_posts()) : $wp_query->the_post(); 
 	$eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
 	$thisEndDate = get_field('slutdatum');
@@ -43,9 +43,9 @@
     			$varcheckmonth++;
     		}
     	}
-    	if($thisEndDate > strtotime('30 days') && $varcheckelse == 0 && $varcheckmonth > 0 && $varcheckweek > 0)
+    	if($thisEndDate > strtotime('30 days') && $varcheckelse == 0)
     	{
-    		if($varcheckmonth > 0 && $varcheckweek > 0){
+    		if($varcheckmonth > 0 || $varcheckweek > 0){
     		$varcheckelse++;
     	?>
     	<h2>Ännu senare: </h2>
