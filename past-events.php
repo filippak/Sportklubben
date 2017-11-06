@@ -5,7 +5,7 @@
 <main id="main" class="l-content" role="main">
     <?php
     $temp = $wp_query; $wp_query= null;
-    $args = array('posts_per_page=5', '&paged='.$paged, 'post_type' => 'aktiviteter');
+    $args = array('posts_per_page=5', '&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter');
     $wp_query = new WP_Query($args); 
     $varCheck = 0;
 //Kollar om det finns posts
