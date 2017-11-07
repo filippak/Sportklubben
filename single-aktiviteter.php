@@ -95,7 +95,7 @@
 					</h1>
 					<p class="activityTitleTime-time">
 						<i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $startTime . " - " . $endTime; ?> <br>
-						<i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
+						<i style="margin-left:2px; margin-right: 8px;"class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
 					</p>
 				</div>
 			</div>

@@ -200,6 +200,7 @@ Single Aktivitet
   }
   .activityTitleTime-time {
 	  margin: 0;
+	  padding-left: 4px;	
   }
   .activityTitleTime-time i {
 	  margin-right: 5px;
