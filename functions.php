@@ -173,6 +173,7 @@
                    'date_format' => 'yymmdd',
                    'display_format' => 'dd/mm/yy',
                    'first_day' => 1,
+                   'required' => 1,
                ),
                array (
                    'key' => 'field_59f2d7e0109df',
@@ -195,6 +196,7 @@
                    'append' => '',
                    'formatting' => 'html',
                    'maxlength' => '',
+                   'required' => 1,
                ),
                array (
                    'key' => 'field_59f2d89fbaeb7',
@@ -208,6 +210,7 @@
                    'append' => '',
                    'formatting' => 'html',
                    'maxlength' => '',
+                   'required' => 1,
                ),
                 array (
                     'key' => 'field_59f2d89fba123',
@@ -283,6 +286,7 @@
                    'zoom' => '',
                    'instructions' => 'Skriv in addressen till eventet',
                    'height' => '',
+                   'required' => 1,
                ),
                array (
                    'key' => 'field_59f2d913baeba',
@@ -335,6 +339,7 @@
 				'save_other_choice' => 0,
 				'default_value' => 'Engångsföreteelse',
 				'layout' => 'vertical',
+				'required' => 1,
 			),
 			array (
 				'key' => 'field_59f700474c0a2',
