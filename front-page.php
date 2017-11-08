@@ -57,64 +57,61 @@
     	<h2>Ännu senare: </h2>
     	<?php } }
     	?>
+    	<div class = frontEvent>
+	    	<div class="frontEvent-date">
+		    	<?php				
 
-
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="Read more">
-				<?php the_title(); ?>
-			</a>
-		</h2>
-		<?php 
-						if (strtotime($thisStartDate) < strtotime('30 days'))
+		    		if($thisEndDate && $startDate === $thisEndDate): ?>
+						<p>
+							<?php echo date_i18n("j", $startDate);?>
+							<?php echo strtoupper(date_i18n("M", $startDate));?>
+							<br>
+							<?php echo date_i18n("D", $startDate);?>
+						</p>
+					<?php
+						else:
+					?>
+						<p>
+							<?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
+							<?php 
+								if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
+									echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
+								else:
+									echo strtoupper(date_i18n("M", $startDate));
+								endif;
+							?>
+							<br>
+							<?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
+						</p>
+					<?php
+						endif;
+					?>
+			</div>
+			<div class ="frontEvent-content">
+				<h2>
+					<a href="<?php the_permalink(); ?>" title="Read more">
+						<?php the_title(); ?>
+					</a>
+				</h2>
+				<?php 
+					if (strtotime($thisStartDate) < strtotime('30 days'))
+					{
+						if($weekToday == $weekTest) 
 						{
-							if($weekToday == $weekTest) 
-							{
-							
-								echo ("Den här veckan!");
-							}
-							else{
-								echo ("Inom en månad!");
-							}
+						
+							echo ("Den här veckan!");
 						}
-
-
-				if($thisEndDate && $startDate === $thisEndDate): 
-			?>
-				<p>
-					<?php echo date_i18n("D", $startDate);?>
-					<?php echo date_i18n("j", $startDate);?>
-					<?php echo date_i18n("M", $startDate);?>
-					<?php echo date_i18n("Y", $startDate);?>
-				</p>
-			<?php
-				else:
-			?>
-				<p>
-					<?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
-					<?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
-					<?php 
-						if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
-							echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $thisEndDate);
-						else:
-							echo date_i18n("M", $startDate);
-						endif;
+						else{
+							echo ("Inom en månad!");
+						}
+					}
 					?>
-					<?php 
-						if(date_i18n("Y", $startDate) !== date_i18n("Y", $thisEndDate)):
-							echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $thisEndDate);
-						else:
-							echo date_i18n("Y", $startDate);
-						endif;
 
+				<?php the_excerpt(); ?>
 				
-				
-					?>
-				</p>
-			<?php
-				endif;
-			?>
-		<?php the_excerpt(); ?>
-		<button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
+			</div>
+			<button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
+		</div>
 		<hr>
 	<?php 
 	$varcheck++;
