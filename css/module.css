@@ -121,26 +121,34 @@ Front page
 Front page event
 ******************/
 .frontEvent {
+	width: 765px;
 	margin-top: 40px;
+	display: inline-flex;
+	align-items: flex-start;
+	flex-direction: row;
 }
 
 .frontEvent-date {
-	display: inline-block;
-	vertical-align: top;
 	width: 140px;
 	padding-top: 5px;
 	font-size: 13pt;
+	flex: 2;
 }
 .frontEvent-date p{
 	margin: 0;
 }
 .frontEvent-content {
-	display: inline-block;
-	vertical-align: top;
+	flex: 5;
 } 
 .frontEvent-content h2 {
 	margin-top: 0;
 	font-size: 32pt;
+}
+
+.frontEvent-buttonReadMore {
+	display: flex;
+	flex: 1;
+	align-self: flex-end;
 }
 
 /******************

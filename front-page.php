@@ -110,7 +110,7 @@
 				<?php the_excerpt(); ?>
 				
 			</div>
-			<button class="buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
+			<button class="frontEvent-buttonReadMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
 		</div>
 		<hr>
 	<?php 

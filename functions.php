@@ -135,24 +135,23 @@
    // Hooking up our function to theme setup
    add_action( 'init', 'create_posttype' );
 
-
+   show_admin_bar(false);
 
 	function create_custom_taxonomies() {
-
-	wp_create_category('Bollsport');
-	wp_create_category('E-sport');
-	wp_create_category('Föredrag');
-	wp_create_category('Friluftsliv');
-	wp_create_category('Konditionsträning');
-	wp_create_category('Löpning');
-	wp_create_category('Motionslopp');
-	wp_create_category('Prova på!');
-	wp_create_category('Racketsporter');
-	wp_create_category('Styrketräning');
-	wp_create_category('Vattensport');
-	wp_create_category('Veckoaktiviteter');
-	wp_create_category('Vintersport');
-	wp_create_category('Yoga');
+        wp_create_category('Bollsport');
+        wp_create_category('E-sport');
+        wp_create_category('Föredrag');
+        wp_create_category('Friluftsliv');
+        wp_create_category('Konditionsträning');
+        wp_create_category('Löpning');
+        wp_create_category('Motionslopp');
+        wp_create_category('Prova på!');
+        wp_create_category('Racketsporter');
+        wp_create_category('Styrketräning');
+        wp_create_category('Vattensport');
+        wp_create_category('Veckoaktiviteter');
+        wp_create_category('Vintersport');
+        wp_create_category('Yoga');
 	}
 
 	   add_action( 'admin_init', 'create_custom_taxonomies' );
@@ -210,6 +209,27 @@
                    'append' => '',
                    'formatting' => 'html',
                    'maxlength' => '',
+                   'required' => 1,
+               ),
+               array (
+                   'key' => 'field_59f2d7e0109dfx123',
+                   'label' => 'Sista dag att registrera sig:',
+                   'name' => 'lastdayosa',
+                   'type' => 'date_picker',
+                   'date_format' => 'yymmdd',
+                   'display_format' => 'dd/mm/yy',
+                   'first_day' => 1,
+               ),
+                array (
+                   'key' => 'field_59f2d8e9baeb9',
+                   'label' => 'Karta',
+                   'name' => 'karta',
+                   'type' => 'google_map',
+                   'center_lat' => '59.329575',
+                   'center_lng' => '17.983804',
+                   'zoom' => '',
+                   'instructions' => 'Skriv in addressen till eventet',
+                   'height' => '',
                    'required' => 1,
                ),
                 array (
@@ -276,18 +296,6 @@
                    'formatting' => 'html',
                    'maxlength' => '',
                 ),
-               array (
-                   'key' => 'field_59f2d8e9baeb9',
-                   'label' => 'Karta',
-                   'name' => 'karta',
-                   'type' => 'google_map',
-                   'center_lat' => '59.329575',
-                   'center_lng' => '17.983804',
-                   'zoom' => '',
-                   'instructions' => 'Skriv in addressen till eventet',
-                   'height' => '',
-                   'required' => 1,
-               ),
                array (
                    'key' => 'field_59f2d913baeba',
                    'label' => 'Bild',

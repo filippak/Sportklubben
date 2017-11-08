@@ -86,7 +86,6 @@ IMPORT font
 	Button
 *******************/
 .button, button, input[type="submit"] {
-	display: inline-block; 
 	font-family: 'Ubuntu', Verdana,serif;
 	font-size: 18px;
 	color: #fff;
@@ -104,7 +103,6 @@ IMPORT font
 }
 .buttonReadMore {
 	margin-top: 10px;
-	float: right;
 }
 
 /*******************
