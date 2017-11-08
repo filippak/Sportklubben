@@ -135,24 +135,23 @@
    // Hooking up our function to theme setup
    add_action( 'init', 'create_posttype' );
 
-
+   show_admin_bar(false);
 
 	function create_custom_taxonomies() {
-
-	wp_create_category('Bollsport');
-	wp_create_category('E-sport');
-	wp_create_category('Föredrag');
-	wp_create_category('Friluftsliv');
-	wp_create_category('Konditionsträning');
-	wp_create_category('Löpning');
-	wp_create_category('Motionslopp');
-	wp_create_category('Prova på!');
-	wp_create_category('Racketsporter');
-	wp_create_category('Styrketräning');
-	wp_create_category('Vattensport');
-	wp_create_category('Veckoaktiviteter');
-	wp_create_category('Vintersport');
-	wp_create_category('Yoga');
+        wp_create_category('Bollsport');
+        wp_create_category('E-sport');
+        wp_create_category('Föredrag');
+        wp_create_category('Friluftsliv');
+        wp_create_category('Konditionsträning');
+        wp_create_category('Löpning');
+        wp_create_category('Motionslopp');
+        wp_create_category('Prova på!');
+        wp_create_category('Racketsporter');
+        wp_create_category('Styrketräning');
+        wp_create_category('Vattensport');
+        wp_create_category('Veckoaktiviteter');
+        wp_create_category('Vintersport');
+        wp_create_category('Yoga');
 	}
 
 	   add_action( 'admin_init', 'create_custom_taxonomies' );
