@@ -11,11 +11,8 @@
             <div id="branding">
                 <div id="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-                        <img src="<?php echo get_template_directory_uri() .'/images/capgemini_logo.png'?>" alt="Capgemini Logo">
+                        <img class ="header-Img" src="<?php echo get_template_directory_uri() .'/images/logo_SPORTKLUBBEN_STHLM.png'?>" alt="Capgemini Logo">
                     </a>
-                </div>
-                <div id="site-description">
-                    Sportklubben Stockholm
                 </div>
             </div>
             <nav class="headerNavMenu">
