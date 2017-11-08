@@ -28,14 +28,14 @@
     $todaysDate = date(Y.m.d);
 	$dateTest = new DateTime(get_field('startdatum'));
 	$weekTest = $dateTest->format("W");
-	
+	$thisStartDate = get_field('startdatum');
 
-    if($eventTypeForThisFront !== "aterkommande" && $thisEndDate >= $todaysDate) :  ?>
+    if($eventTypeForThisFront !== "aterkommande" && $thisStartDate >= $todaysDate) :  ?>
     	<?php  
     	$thisEndDate =strtotime($thisEndDate);
     	
 
-    	if ($thisEndDate <= strtotime('30 days') && $varcheckmonth == 0) {
+    	if ($thisStartDate <= strtotime('30 days') && $varcheckmonth == 0) {
     		if ($weekToday == $weekTest && $varcheckweek == 0) {
     		?> 	
     		<h2>Den här veckan:</h2>
@@ -49,7 +49,7 @@
     			$varcheckmonth++;
     		}
     	}
-    	if($thisEndDate > strtotime('30 days') && $varcheckelse == 0)
+    	if(strtotime($thisStartDate) > strtotime('30 days') && $varcheckelse == 0)
     	{
     		if($varcheckmonth > 0 || $varcheckweek > 0){
     		$varcheckelse++;
@@ -65,7 +65,7 @@
 			</a>
 		</h2>
 		<?php 
-						if ($thisEndDate < strtotime('30 days'))
+						if (strtotime($thisStartDate) < strtotime('30 days'))
 						{
 							if($weekToday == $weekTest) 
 							{
