@@ -26,6 +26,10 @@
         wp_register_script('fixed',  get_template_directory_uri() . '/js/fixed.js');
         wp_enqueue_script('fixed');
 
+        //för tabs på front page:
+        wp_register_script('tabs',  get_template_directory_uri() . '/js/tabs.js');
+        wp_enqueue_script('tabs');
+
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         //Swiping
