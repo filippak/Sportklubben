@@ -211,6 +211,15 @@
                    'maxlength' => '',
                    'required' => 1,
                ),
+               array (
+                   'key' => 'field_59f2d7e0109dfx123',
+                   'label' => 'Sista dag att registrera sig:',
+                   'name' => 'lastdayosa',
+                   'type' => 'date_picker',
+                   'date_format' => 'yymmdd',
+                   'display_format' => 'dd/mm/yy',
+                   'first_day' => 1,
+               ),
                 array (
                     'key' => 'field_59f2d89fba123',
                     'label' => 'Antal platser kvar',

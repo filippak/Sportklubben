@@ -117,6 +117,32 @@ Front page
 		width: auto;
 	}
 }
+/******************
+Front page event
+******************/
+.frontEvent {
+	margin-top: 40px;
+}
+
+.frontEvent-date {
+	display: inline-block;
+	vertical-align: top;
+	width: 140px;
+	padding-top: 5px;
+	font-size: 13pt;
+}
+.frontEvent-date p{
+	margin: 0;
+}
+.frontEvent-content {
+	display: inline-block;
+	vertical-align: top;
+} 
+.frontEvent-content h2 {
+	margin-top: 0;
+	font-size: 32pt;
+}
+
 
 /******************
 Single Aktivitet
