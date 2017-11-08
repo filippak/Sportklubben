@@ -59,13 +59,13 @@
         makeBSS('.slideshow', opts);
     </script>
     <script>
-        jQuery(function($) {
-            $.scrollify({
-                section : ".snapScroll",
-                offset : -80,
-                standardScrollElements : ".l-container .l-wrapper"
-            });
-        });
+        // jQuery(function($) {
+        //     $.scrollify({
+        //         section : ".snapScroll",
+        //         offset : -80,
+        //         standardScrollElements : ".l-container .l-wrapper"
+        //     });
+        // });
     </script>
  <?php endif;?>
 <div class="l-container snapScroll">
