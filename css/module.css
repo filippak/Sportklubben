@@ -83,6 +83,11 @@ Front page
 	height: 500px;
 	height:100vh;
 }
+@media all and (max-width:768px) { 
+	.slideshow {
+		display: none;
+	}
+}
 .slideshow-figure {
 	overflow: hidden;
 	height: 100%;
@@ -110,11 +115,6 @@ Front page
 		max-width: none;
 		height: 100%;
 		width: auto;
-	}
-}
-@media all and (max-width:768px) { 
-	.slideshow {
-		height: 500px;
 	}
 }
 /******************
