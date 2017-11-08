@@ -744,6 +744,23 @@ a img {
 	border: 0 none
 }
 
+button {
+	font-family: 'Ubuntu', Verdana,serif;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 15px;
+	border: 0;
+	background: #12abdb;
+	border-radius: 10px 5px;
+	transition: background-color 0.3s ease;
+}
+button:hover {
+	cursor: pointer;
+	background: #0070ad;
+}
+
 strong {
 	margin: 0;
 	padding: 0;
@@ -824,6 +841,23 @@ input {
 	margin-top: 10px;
 	background: #f6f6f6
 }
+input[type="submit"] {
+	font-family: 'Ubuntu', Verdana,serif;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 15px;
+	border: 0;
+	background: #12abdb;
+	border-radius: 10px 5px;
+	transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+	cursor: pointer;
+	background: #0070ad;
+}
+
 @media all and (max-width:480px){
 	input {
 		width:100% !important

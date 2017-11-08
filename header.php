@@ -59,9 +59,6 @@
         makeBSS('.slideshow', opts);
     </script>
     <script>
-<<<<<<< HEAD
-      
-=======
         // jQuery(function($) {
         //     $.scrollify({
         //         section : ".snapScroll",
@@ -69,7 +66,6 @@
         //         standardScrollElements : ".l-container .l-wrapper"
         //     });
         // });
->>>>>>> b5f4506ac222671b3035454c043b7804ff4e08ad
     </script>
  <?php endif;?>
 <div class="l-container snapScroll">

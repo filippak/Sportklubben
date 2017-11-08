@@ -162,7 +162,7 @@ div.tab button.active {
 Front page event
 ******************/
 .frontEvent {
-	width: 765px;
+	width: 100%;
 	margin-top: 40px;
 	display: inline-flex;
 	align-items: flex-start;
@@ -186,10 +186,11 @@ Front page event
 	font-size: 32pt;
 }
 
-.frontEvent-buttonReadMore {
-	display: flex;
+.frontEvent-readMore {
+	text-align: center;
 	flex: 1;
 	align-self: flex-end;
+	margin-top: 10px;
 }
 
 /******************
