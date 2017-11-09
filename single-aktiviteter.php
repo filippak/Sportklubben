@@ -58,7 +58,7 @@
 			<?php endif ?>
 			<!--Date-->
 			<div class="activityInfo ">
-				<?php if($endDate && $startDate === $endDate): ?>
+				<?php if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
 
 						<span class="circleDate-dayTex"><?php echo date_i18n("D", $startDate);?></span>

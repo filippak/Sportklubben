@@ -10,7 +10,7 @@
 <?php 
 	// Show the selected frontpage content.
 	$temp = $wp_query; $wp_query= null;
-	$args = array('posts_per_page=5', '&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter', 'meta_query' => array(
+	$args = array('&paged='.$paged, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter', 'meta_query' => array(
 		array(
 			'key'     => 'engangsforetelse_eller_aterkommande_aktivitet',
 			'value'   => 'engangsforeteelse',
@@ -67,7 +67,7 @@
 	    	<div class="frontEvent-date">
 		    	<?php				
 
-		    		if($thisEndDate && $startDate === $thisEndDate): ?>
+		    		if(($thisEndDate && $startDate === $thisEndDate) || !$thisEndDate ): ?>
 						<p>
 							<?php echo date_i18n("j", $startDate);?>
 							<?php echo strtoupper(date_i18n("M", $startDate));?>
