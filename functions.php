@@ -26,6 +26,10 @@
         wp_register_script('fixed',  get_template_directory_uri() . '/js/fixed.js');
         wp_enqueue_script('fixed');
 
+        //för tabs på front page:
+        wp_register_script('tabs',  get_template_directory_uri() . '/js/tabs.js');
+        wp_enqueue_script('tabs');
+
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         //Swiping
@@ -135,24 +139,23 @@
    // Hooking up our function to theme setup
    add_action( 'init', 'create_posttype' );
 
-
+   show_admin_bar(false);
 
 	function create_custom_taxonomies() {
-
-	wp_create_category('Bollsport');
-	wp_create_category('E-sport');
-	wp_create_category('Föredrag');
-	wp_create_category('Friluftsliv');
-	wp_create_category('Konditionsträning');
-	wp_create_category('Löpning');
-	wp_create_category('Motionslopp');
-	wp_create_category('Prova på!');
-	wp_create_category('Racketsporter');
-	wp_create_category('Styrketräning');
-	wp_create_category('Vattensport');
-	wp_create_category('Veckoaktiviteter');
-	wp_create_category('Vintersport');
-	wp_create_category('Yoga');
+        wp_create_category('Bollsport');
+        wp_create_category('E-sport');
+        wp_create_category('Föredrag');
+        wp_create_category('Friluftsliv');
+        wp_create_category('Konditionsträning');
+        wp_create_category('Löpning');
+        wp_create_category('Motionslopp');
+        wp_create_category('Prova på!');
+        wp_create_category('Racketsporter');
+        wp_create_category('Styrketräning');
+        wp_create_category('Vattensport');
+        wp_create_category('Veckoaktiviteter');
+        wp_create_category('Vintersport');
+        wp_create_category('Yoga');
 	}
 
 	   add_action( 'admin_init', 'create_custom_taxonomies' );
@@ -167,13 +170,27 @@
            'fields' => array (
                array (
                    'key' => 'field_59f2d6d4109de',
-                   'label' => 'Startdatum',
+                   'label' => 'Startdatum (Required)',
                    'name' => 'startdatum',
                    'type' => 'date_picker',
                    'date_format' => 'yymmdd',
                    'display_format' => 'dd/mm/yy',
                    'first_day' => 1,
                    'required' => 1,
+               ),
+               array (
+                    'key' => 'field_59f2d878baeb6',
+                    'label' => 'Starttid (Required)',
+                    'name' => 'starttid',
+                    'type' => 'text',
+                    'instructions' => 'Format: hh:mm',
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'formatting' => 'html',
+                    'maxlength' => '',
+                    'required' => 1,
                ),
                array (
                    'key' => 'field_59f2d7e0109df',
@@ -185,22 +202,8 @@
                    'first_day' => 1,
                ),
                array (
-                   'key' => 'field_59f2d878baeb6',
-                   'label' => 'Starttid',
-                   'name' => 'starttid',
-                   'type' => 'text',
-                   'instructions' => 'Format: hh:mm',
-                   'default_value' => '',
-                   'placeholder' => '',
-                   'prepend' => '',
-                   'append' => '',
-                   'formatting' => 'html',
-                   'maxlength' => '',
-                   'required' => 1,
-               ),
-               array (
                    'key' => 'field_59f2d89fbaeb7',
-                   'label' => 'Sluttid',
+                   'label' => 'Sluttid (Required)',
                    'name' => 'sluttid',
                    'type' => 'text',
                    'instructions' => 'Format: hh:mm',
@@ -212,9 +215,30 @@
                    'maxlength' => '',
                    'required' => 1,
                ),
+               array (
+                   'key' => 'field_59f2d7e0109dfx123',
+                   'label' => 'Sista dag att registrera sig:',
+                   'name' => 'lastdayosa',
+                   'type' => 'date_picker',
+                   'date_format' => 'yymmdd',
+                   'display_format' => 'dd/mm/yy',
+                   'first_day' => 1,
+               ),
+                array (
+                   'key' => 'field_59f2d8e9baeb9',
+                   'label' => 'Adress (Required)',
+                   'name' => 'karta',
+                   'type' => 'google_map',
+                   'center_lat' => '59.329575',
+                   'center_lng' => '17.983804',
+                   'zoom' => '',
+                   'instructions' => 'Skriv in adressen till eventet eller välj via kartan',
+                   'height' => '',
+                   'required' => 1,
+               ),
                 array (
                     'key' => 'field_59f2d89fba123',
-                    'label' => 'Antal platser kvar',
+                    'label' => 'Antal lediga platser',
                     'name' => 'antal',
                     'type' => 'number',
                     'default_value' => '',
@@ -277,18 +301,6 @@
                    'maxlength' => '',
                 ),
                array (
-                   'key' => 'field_59f2d8e9baeb9',
-                   'label' => 'Karta',
-                   'name' => 'karta',
-                   'type' => 'google_map',
-                   'center_lat' => '59.329575',
-                   'center_lng' => '17.983804',
-                   'zoom' => '',
-                   'instructions' => 'Skriv in addressen till eventet',
-                   'height' => '',
-                   'required' => 1,
-               ),
-               array (
                    'key' => 'field_59f2d913baeba',
                    'label' => 'Bild',
                    'name' => 'bild',
@@ -327,7 +339,7 @@
 		'fields' => array (
 			array (
 				'key' => 'field_59f7001f4c0a1',
-				'label' => 'Engångsföreteelse eller återkommande aktivitet?',
+				'label' => 'Engångsföreteelse eller återkommande aktivitet? (Required)',
 				'name' => 'engangsforetelse_eller_aterkommande_aktivitet',
 				'type' => 'radio',
 				'instructions' => 'Om man väljer veckoligen kommer den återskapas samma veckodag varje vecka, om man återskapar den dagligen kommer den läggas in varje dag, inklusive helger.',

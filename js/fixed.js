@@ -21,7 +21,12 @@ window.onload = function() {
 function checkHead (topp, headerHeight) {
 	if(topp > headerHeight) {
 		jQuery(".l-header").addClass("isFixed");
+		jQuery(".header-Img").addClass("isFixedImg");
+		jQuery(".header-Img-Mini").addClass("isFixedImgMini");
+
 	} else {
 		jQuery(".l-header").removeClass("isFixed");
+		jQuery(".header-Img").removeClass("isFixedImg");
+		jQuery(".header-Img-Mini").removeClass("isFixedImgMini");
 	}
 }

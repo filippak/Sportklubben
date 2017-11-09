@@ -83,6 +83,11 @@ Front page
 	height: 500px;
 	height:100vh;
 }
+@media all and (max-width:768px) {
+	.slideshow {
+		display: none;
+	}
+}
 .slideshow-figure {
 	overflow: hidden;
 	height: 100%;
@@ -116,6 +121,80 @@ Front page
 	.slideshow {
 		height: 500px;
 	}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #0070ad;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #2b0a43;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+
+#Upcoming {
+	display: block;
+}
+#Ongoing {
+	display: none;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/******************
+Front page event
+******************/
+.frontEvent {
+	width: 100%;
+	margin-top: 40px;
+	display: inline-flex;
+	align-items: flex-start;
+	flex-direction: row;
+}
+
+.frontEvent-date {
+	width: 140px;
+	padding-top: 5px;
+	font-size: 13pt;
+	flex: 2;
+}
+.frontEvent-date p{
+	margin: 0;
+}
+.frontEvent-content {
+	flex: 5;
+}
+.frontEvent-content h2 {
+	margin-top: 0;
+	font-size: 32pt;
+}
+
+.frontEvent-readMore {
+	text-align: center;
+	flex: 1;
+	align-self: flex-end;
+	margin-top: 10px;
 }
 
 /******************

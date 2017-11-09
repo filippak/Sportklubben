@@ -1,7 +1,7 @@
 <?php /* Template Name: AterkommandeEvent*/ ?>
  
 <?php get_header(); ?>
- 
+ <div class = frontEvent>
 <div id="primary" class="content-area">
     <main id="main" class="l-content" role="main">
         <?php
