@@ -48,6 +48,122 @@
         wp_enqueue_script('scrollify');
     }
 
+    function getEvents($eventType) {
+        // Show the selected frontpage content.
+        $temp = $wp_query; $wp_query= null;
+        $args = array('&paged='.$paged, 'posts_per_page' => -1, 'meta_key' => 'startdatum', 'orderby' => 'meta_value', 'order' => 'ASC', 'post_type' => 'aktiviteter', 'meta_query' => array(
+            array(
+                'key'     => 'engangsforetelse_eller_aterkommande_aktivitet',
+                'value'   => $eventType,
+                'compare' => 'EXISTS',
+            ),
+        ),);
+        $wp_query = new WP_Query($args); 
+        $varcheckweek = 0;
+        $varcheckmonth = 0;
+        $varcheckelse = 0;
+        $posts = get_posts( $args );
+        $dateToday = new DateTime(date(Y.m.d));
+        $weekToday = $dateToday->format("W");
+        $varcheck = 0;
+    
+    
+        while ($wp_query->have_posts()) : $wp_query->the_post(); 
+        $eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
+        $thisEndDate = get_field('slutdatum');
+        $startDate = strtotime(get_field('startdatum'));
+        $todaysDate = date(Y.m.d);
+        $dateTest = new DateTime(get_field('startdatum'));
+        $weekTest = $dateTest->format("W");
+        $thisStartDate = get_field('startdatum');
+    
+        if($eventTypeForThisFront !== "aterkommande" && $thisStartDate >= $todaysDate) :
+            $thisEndDate =strtotime($thisEndDate);
+            if ($thisStartDate <= strtotime('30 days') && $varcheckmonth == 0) {
+                if ($weekToday == $weekTest && $varcheckweek == 0) {
+?> 	
+                    <h2>Den här veckan:</h2>
+<?php 
+                    $varcheckweek++;
+                }
+                elseif($weekToday !== $weekTest){
+?>
+                    <h2>Kommande månaden:</h2>
+<?php	
+                    $varcheckmonth++;
+                }
+            }
+            if(strtotime($thisStartDate) > strtotime('30 days') && $varcheckelse == 0)
+            {
+                if($varcheckmonth > 0 || $varcheckweek > 0){
+                $varcheckelse++;
+?>
+                    <h2>Ännu senare: </h2>
+<?php 
+                } 
+            }
+?>
+            <div class = frontEvent>
+                <div class="frontEvent-date">
+                    <?php if(($thisEndDate && $startDate === $thisEndDate) || !$thisEndDate ): ?>
+                        <p>
+                            <?php echo date_i18n("j", $startDate);?>
+                            <?php echo strtoupper(date_i18n("M", $startDate));?>
+                            <br>
+                            <?php echo date_i18n("D", $startDate);?>
+                        </p>
+                        <?php else:?>
+                            <p>
+                                <?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
+                                <?php 
+                                    if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
+                                        echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
+                                    else:
+                                        echo strtoupper(date_i18n("M", $startDate));
+                                    endif;
+                                ?>
+                                <br>
+                                <?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
+                            </p>
+                        <?php
+                            endif;
+                        ?>
+                </div>
+                <div class ="frontEvent-content">
+                    <h2>
+                        <a href="<?php the_permalink(); ?>" title="Read more">
+                            <?php the_title(); ?>
+                        </a>
+                    </h2>
+                    <?php 
+                        if (strtotime($thisStartDate) < strtotime('30 days'))
+                        {
+                            if($weekToday == $weekTest) 
+                            {
+                            
+                                echo ("Den här veckan!");
+                            }
+                            else{
+                                echo ("Inom en månad!");
+                            }
+                        }
+                        ?>
+    
+                    <?php the_excerpt(); ?>
+                    
+                </div>
+                <button class="frontEvent-readMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
+            </div>
+            <hr>
+        <?php 
+        $varcheck++;
+        endif;
+        endwhile;
+        if($varcheck == 0) :
+            echo "Det finns tyvärr inga inplanerade aktiviteter för tillfället. <br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!";
+        endif;
+    }
+
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
     function generic_document_title_separator( $sep ) {
         $sep = "|";
