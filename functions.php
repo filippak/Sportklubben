@@ -77,7 +77,7 @@
         $weekTest = $dateTest->format("W");
         $thisStartDate = get_field('startdatum');
     
-        if($eventTypeForThisFront !== "aterkommande" && $thisStartDate >= $todaysDate) :
+        if(($eventTypeForThisFront == "engangsforeteelse" &&$thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
             $thisEndDate =strtotime($thisEndDate);
             if ($thisStartDate <= strtotime('30 days') && $varcheckmonth == 0) {
                 if ($weekToday == $weekTest && $varcheckweek == 0) {
