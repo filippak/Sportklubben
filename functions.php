@@ -467,15 +467,15 @@
     return $api;
   }
 
-  add_action( 'template_redirect', function() {
-
-      if( ( !is_page('log-on-page') ) ) {
-
-          if (!is_user_logged_in() ) {
-              wp_redirect( site_url( '/log-on-page' ) );        // redirect all...
-              exit();
-          }
-
-      }
-
-  });
+  // add_action( 'template_redirect', function() {
+  //
+  //     if( ( !is_page('log-on-page') ) ) {
+  //
+  //         if (!is_user_logged_in() ) {
+  //             wp_redirect( site_url( '/log-on-page' ) );        // redirect all...
+  //             exit();
+  //         }
+  //
+  //     }
+  //
+  // });
