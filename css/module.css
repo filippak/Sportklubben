@@ -35,7 +35,7 @@
 	margin-top: -1px;
 	margin-right: 15px
 }
-.headerNavMenu-UlLink li a:hover { 
+.headerNavMenu-UlLink li a:hover {
 	color: #12abdb;
 	text-decoration: none
 }
@@ -91,7 +91,7 @@ Front page
 }
 .slideshow-image {
 	vertical-align: middle;
-	
+
 	position: relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
@@ -112,7 +112,7 @@ Front page
 		width: auto;
 	}
 }
-@media all and (max-width:768px) { 
+@media all and (max-width:768px) {
 	.slideshow {
 		height: 500px;
 	}
@@ -133,6 +133,15 @@ Single Aktivitet
 	-o-transform: translateY(-96px0);
 	transform: translateY(-96px);
 }
+
+.activityInformation {
+  position: absolute;
+	-webkit-transform: translateY(-96px);
+	-ms-transform: translateY(-96px);
+	-o-transform: translateY(-96px0);
+	transform: translateY(-96px);
+}
+
 .calendarDate {
 	font-variant: normal;
 	font-style: normal;
@@ -140,10 +149,10 @@ Single Aktivitet
 	font-size: 48px;
 
 	vertical-align: top;
-  
+
 	color: black;
 	background: #ececec;
-  
+
 	border: 1px solid black;
 	border-radius: 3px;
 	overflow: hidden;
@@ -151,12 +160,11 @@ Single Aktivitet
 
 	display: inline-block;
 	position: relative;
-	width: 4em; 
+	width: 4em;
 	height: 4em;
 
-	margin-left: 32px;
-	margin-right: 32px;
   }
+
   .calendarDate-weekday,
   .calendarDate-day,
   .calendarDate-month,
@@ -200,8 +208,63 @@ Single Aktivitet
   }
   .activityTitleTime-time {
 	  margin: 0;
-	  padding-left: 4px;	
+	  padding-left: 4px;
   }
   .activityTitleTime-time i {
 	  margin-right: 5px;
   }
+
+	/** Circle **/
+	.timeContainer{
+		margin-left: 32px;
+		margin-right: 32px;
+		font-variant: normal;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 48px;
+		vertical-align: top;
+		color: white;
+		overflow: hidden;
+		display: inline-block;
+		position: relative;
+		width: 4.234em;
+		height: 3.99em;
+	}
+	.circleDate-dayNumber,
+	.circleDate-dayText,
+	.circleDate-month,
+	.circleDate-year {
+	text-align: center;
+	line-height: 1.0;
+	display: block;
+	left: 0;
+	right: 0;
+	width: 100%;
+	}
+	.circleDate-dayMonth{
+width: 50%;
+padding-top: 0.8em;
+float: left;
+	}
+	.dateWrapper{
+		height: 2.9em;
+		padding-left: 0.2em;
+		padding-right: 0.2em;
+	}
+	.circleDate-dayText{
+		font-size: 0.6125em;
+		padding-top: 0.6em;
+	}
+	.circleDate-dayNumber{
+		font-size: 1.6em;
+		letter-spacing: -0.15em;
+		padding-right: 0.15em;
+		margin-bottom: -0.1em;
+	}
+	.circleDate-month{
+		font-size: 0.4125em;
+		text-transform: uppercase;
+	}
+	.circleDate-year{
+		font-size: 0.3525em;
+	}

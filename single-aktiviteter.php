@@ -27,12 +27,12 @@
 	$location = get_field('karta');
 	if($location):
 		$address = $location['address'];
-	endif;	
+	endif;
 
 	$img = get_field('bild');
 
 	$website = get_field('hemsida');
-	
+
 	$startDate = strtotime(get_field('startdatum'));
 	$endDate =strtotime(get_field('slutdatum'));
 	$startTime = get_field('starttid');
@@ -54,10 +54,45 @@
 				<?php the_post_thumbnail( 'full' ); ?>
 			<?php else : ?>
 				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
+				<div class = "activityInformation">test</div>
 			<?php endif ?>
 			<!--Date-->
 			<div class="activityInfo ">
 				<?php if($endDate && $startDate === $endDate): ?>
+					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
+
+						<span class="circleDate-dayTex"><?php echo date_i18n("D", $startDate);?></span>
+						<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
+						<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?> </span>
+						<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+					</time>
+				<?php else: ?>
+
+					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
+
+
+
+						<div class = "dateWrapper">
+						<div class = "circleDate-dayMonth">
+							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
+							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
+							<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+						</div>
+						<p style="position:absolute; top: 50%; left: 50%; transform: translate(-30%, -50%); margin: 0; color: white;">-</p>
+						<div class ="circleDate-dayMonth">
+							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $endDate);?></span>
+							<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
+							<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
+						</div>
+
+					</div>
+
+
+					</div>
+				<?php endif; ?>
+
+			 <!-- <?php if($endDate && $startDate === $endDate): ?>
+
 					<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
 						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
 						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
@@ -69,7 +104,7 @@
 						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
 						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
 						<span class="calendarDate-month">
-							<?php 
+							<?php
 								if(date_i18n("M", $startDate) !== date_i18n("M", $endDate)):
 									echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $endDate);
 								else:
@@ -78,7 +113,7 @@
 							?>
 						</span>
 						<span class="calendarDate-year">
-							<?php 
+							<?php
 								if(date_i18n("Y", $startDate) !== date_i18n("Y", $endDate)):
 									echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $endDate);
 								else:
@@ -88,10 +123,12 @@
 						</span>
 					</time>
 				<?php endif; ?>
+			 -->
+
 				<!--Titel-->
 				<div class="activityTitleTime">
-					<h1 class="activityTitleTime-title"> 
-						<?php the_title(); ?>	
+					<h1 class="activityTitleTime-title">
+						<?php the_title(); ?>
 					</h1>
 					<p class="activityTitleTime-time">
 						<i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $startTime . " - " . $endTime; ?> <br>
@@ -99,20 +136,21 @@
 					</p>
 				</div>
 			</div>
-		</div>
-		<div class="entry-content singleActivityInfo"> 
-			
+
+	</div>
+		<div class="entry-content singleActivityInfo">
+
 			<!-- Återkommmande-->
 			<p>
 				<?php
 					if($eventType == "engangsforeteelse") :
-						
+
 					else :
 						?>
 						Återkommande: <br><?php
 						//echo $eventType;
 						$recurring = get_field('aterkommande');
-						
+
 						switch ($recurring) {
 							case 'daily':
 								echo "Dagligen";
@@ -133,7 +171,7 @@
 								$labelDay = $field['choices'][$value];
 
 								echo " " . $labelDay . " varje månad.";
-				
+
 								break;
 							case 'yearly':
 								echo "Årligen";
@@ -142,29 +180,29 @@
 								echo "Inget valt.";
 								break;
 						}
-					endif; 
+					endif;
 				?>
 			</p>
 			<!--Hemsida-->
 			<div>
-				<p>Hemsida: 
+				<p>Hemsida:
 					<a target= "_blacnk" href="<?php echo $website; ?>"><?php echo $website; ?></a>
 				</p>
 			</div>
 
 			<!--Platser kvar-->
-			<p>Antal platser kvar:<br> 
-				<?php 
+			<p>Antal platser kvar:<br>
+				<?php
 					if($noPeople && $noPeople !== '0') :
-						echo $noPeople; 
+						echo $noPeople;
 					else :
 						echo "Fullt";
 					endif ;
 				?>
 			</p>
 			<!--Datum-->
-			<?php 
-				if($endDate && $startDate !== $endDate): 
+			<?php
+				if($endDate && $startDate !== $endDate):
 			?>
 			 	<p>
 					Startdatum: <?php echo date_i18n($dateformatstring, $unixtimestampStart); ?>
@@ -172,11 +210,11 @@
 				<?php $unixtimestampEnd = strtotime($endDate); ?>
 				Slutdatum: <?php echo date_i18n($dateformatstring, $unixtimestampEnd);  ?>
 				</p>
-			<?php 
-				else : 
+			<?php
+				else :
 			?>
 			 	<p>Datum: <?php echo date_i18n($dateformatstring, $unixtimestampStart)?></p>
-			<?php 
+			<?php
 				endif;
 			 ?>
 			<!--Beskrivningstexten: -->
@@ -200,7 +238,7 @@
 				<div class="acf-map">
 					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 				</div>
-			<?php endif; ?>	
+			<?php endif; ?>
 			<!--Anmälan-->
 			<section>
 				<h3>Anmälan:</h3>
@@ -217,7 +255,7 @@
 					<input type="text" name="homeaddr"><br>
 					Startgrupp:<br>
 					<input type="text" name="startgroup"><br>
-					<input type="submit" value="Submit">				
+					<input type="submit" value="Submit">
 				</form>
 			</section>
 
