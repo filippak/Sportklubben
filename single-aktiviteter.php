@@ -78,7 +78,7 @@
 							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
 							<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
 						</div>
-						<p style="position:absolute; top: 50%; left: 50%; transform: translate(-30%, -50%); margin: 0; color: white;">-</p>
+						<p style="position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; color: white;">-</p>
 						<div class ="circleDate-dayMonth">
 							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $endDate);?></span>
 							<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>

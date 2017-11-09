@@ -337,8 +337,8 @@ float: left;
 	}
 	.circleDate-dayNumber{
 		font-size: 1.6em;
-		letter-spacing: -0.15em;
-		padding-right: 0.15em;
+		letter-spacing: -0.1em;
+		padding-right: 0.1em;
 		margin-bottom: -0.1em;
 	}
 	.circleDate-month{
