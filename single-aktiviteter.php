@@ -60,34 +60,26 @@
 			<div class="activityInfo ">
 				<?php if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
-
 						<span class="circleDate-dayTex"><?php echo date_i18n("D", $startDate);?></span>
 						<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
 						<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?> </span>
 						<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
-					</time>
-				<?php else: ?>
-
-					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
-
-
-
-						<div class = "dateWrapper">
-						<div class = "circleDate-dayMonth">
-							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
-							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
-							<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
-						</div>
-						<p style="position:absolute; top: 50%; left: 50%; transform: translate(-30%, -50%); margin: 0; color: white;">-</p>
-						<div class ="circleDate-dayMonth">
-							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $endDate);?></span>
-							<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
-							<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
-						</div>
-
 					</div>
-
-
+				<?php else: ?>
+					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
+						<div class = "dateWrapper">
+							<div class = "circleDate-dayMonth">
+								<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
+								<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
+								<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+							</div>
+							<p style="position:absolute; top: 50%; left: 50%; transform: translate(-30%, -50%); margin: 0; color: white;">-</p>
+							<div class ="circleDate-dayMonth">
+								<span class="circleDate-dayNumber"><?php echo date_i18n("j", $endDate);?></span>
+								<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
+								<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
+							</div>
+						</div>
 					</div>
 				<?php endif; ?>
 
@@ -135,6 +127,23 @@
 						<i style="margin-left:2px; margin-right: 8px;"class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
 					</p>
 				</div>
+				<button class="registration">Anmmälan</button>
+			</div>
+			<div id="registrationModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2>Modal Header</h2>
+					</div>
+					<div class="modal-body">
+						<p>Some text in the Modal Body</p>
+						<p>Some other text...</p>
+					</div>
+					<div class="modal-footer">
+						<h3>Modal Footer</h3>
+					</div>
+			  	</div>
 			</div>
 
 	</div>

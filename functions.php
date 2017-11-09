@@ -30,6 +30,10 @@
         wp_register_script('tabs',  get_template_directory_uri() . '/js/tabs.js');
         wp_enqueue_script('tabs');
 
+        //För Registrationmodal att visas
+        wp_register_script('modal', get_template_directory_uri() . '/js/modal.js');
+        wp_enqueue_script('modal');
+
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         //Swiping
