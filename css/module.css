@@ -123,44 +123,22 @@ Front page
 	}
 }
 
-/* Change background color of buttons on hover */
-div.tab button:hover {
-    background-color: #0070ad;
-}
-
-/* Create an active/current tablink class */
+/* Style the tab content */
 div.tab button.active {
     background-color: #2b0a43;
 }
-
-/* Style the tab content */
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border-top: none;
+	border-top: none;
+	-webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
 }
-
-
 #Upcoming {
 	display: block;
 }
 #Ongoing {
 	display: none;
-}
-
-.tabcontent {
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-@-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
 }
 
 /******************
@@ -173,7 +151,6 @@ Front page event
 	align-items: flex-start;
 	flex-direction: row;
 }
-
 .frontEvent-date {
 	width: 140px;
 	padding-top: 5px;
@@ -190,7 +167,6 @@ Front page event
 	margin-top: 0;
 	font-size: 32pt;
 }
-
 .frontEvent-readMore {
 	text-align: center;
 	flex: 1;
@@ -242,13 +218,12 @@ Single Aktivitet
 	position: relative;
 	width: 4em;
 	height: 4em;
-
   }
 
-  .calendarDate-weekday,
-  .calendarDate-day,
-  .calendarDate-month,
-  .calendarDate-year {
+.calendarDate-weekday,
+.calendarDate-day,
+.calendarDate-month,
+.calendarDate-year {
 	text-align: center;
 	line-height: 1.0;
 	display: block;
@@ -257,8 +232,8 @@ Single Aktivitet
 	right: 0;
 	width: 100%;
 	height: 1.1em;
-  }
-  .calendarDate-month {
+}
+.calendarDate-month {
 	top: 0px;
 	font-size: 0.6em;
 	padding: 0.3em 0;
@@ -266,111 +241,109 @@ Single Aktivitet
 	text-transform: uppercase;
 	background: #ff304c;
 	color: white;
-  }
-  .calendarDate-weekday {
+}
+.calendarDate-weekday {
 	top: 1.6em;
 	font-size: 0.6125em;
-  }
-  .calendarDate-day {
+}
+.calendarDate-day {
 	top: 1.2em;
 	font-size: 1.4em
-  }
-  .calendarDate-year {
+}
+.calendarDate-year {
 	bottom: 0px;
 	font-size: 0.5em;
-  }
-  .activityTitleTime {
-	  display: inline-block;
-	  margin-top: 96px;
-  }
-  .activityTitleTime-title {
-	  margin-bottom: 0;
-  }
-  .activityTitleTime-time {
-	  margin: 0;
-	  padding-left: 4px;
-  }
-  .activityTitleTime-time i {
-	  margin-right: 5px;
-  }
+}
+.activityTitleTime {
+	display: inline-block;
+	margin-top: 96px;
+}
+.activityTitleTime-title {
+	margin-bottom: 0;
+}
+.activityTitleTime-time {
+	margin: 0;
+	padding-left: 4px;
+}
+.activityTitleTime-time i {
+	margin-right: 5px;
+}
 
-	/** Circle **/
-	.timeContainer{
-		margin-left: 32px;
-		margin-right: 32px;
-		font-variant: normal;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 48px;
-		vertical-align: top;
-		color: white;
-		overflow: hidden;
-		display: inline-block;
-		position: relative;
-		width: 4.234em;
-		height: 3.99em;
-	}
-	.circleDate-dayNumber,
-	.circleDate-dayText,
-	.circleDate-month,
-	.circleDate-year {
+/** Circle **/
+.timeContainer{
+	margin-left: 32px;
+	margin-right: 32px;
+	font-variant: normal;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	vertical-align: top;
+	color: white;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	width: 4.234em;
+	height: 3.99em;
+}
+.circleDate-dayNumber,
+.circleDate-dayText,
+.circleDate-month,
+.circleDate-year {
 	text-align: center;
 	line-height: 1.0;
 	display: block;
 	left: 0;
 	right: 0;
 	width: 100%;
-	}
-	.circleDate-dayMonth{
-width: 50%;
-padding-top: 0.8em;
-float: left;
-	}
-	.dateWrapper{
-		height: 2.9em;
-		padding-left: 0.2em;
-		padding-right: 0.2em;
-	}
-	.circleDate-dayText{
-		font-size: 0.6125em;
-		padding-top: 0.6em;
-	}
-	.circleDate-dayNumber{
-		font-size: 1.6em;
-		letter-spacing: -0.15em;
-		padding-right: 0.15em;
-		margin-bottom: -0.1em;
-	}
-	.circleDate-month{
-		font-size: 0.4125em;
-		text-transform: uppercase;
-	}
-	.circleDate-year{
-		font-size: 0.3525em;
-	}
+}
+.circleDate-dayMonth{
+	width: 50%;
+	padding-top: 0.8em;
+	float: left;
+}
+.dateWrapper{
+	height: 2.9em;
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+.circleDate-dayText{
+	font-size: 0.6125em;
+	padding-top: 0.6em;
+}
+.circleDate-dayNumber{
+	font-size: 1.6em;
+	letter-spacing: -0.15em;
+	padding-right: 0.15em;
+	margin-bottom: -0.1em;
+}
+.circleDate-month{
+	font-size: 0.4125em;
+	text-transform: uppercase;
+}
+.circleDate-year{
+	font-size: 0.3525em;
+}
 
-	/* The Modal (background) */
+/* The Popup Modal*/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; 
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-duration: 0.4s
 }
-
-/* Modal Content */
 .modal-content {
     position: fixed;
-    bottom: 20%;
+    top: 20%;
     background-color: #fefefe;
 	width: 60%;
 	left: 20%;
@@ -379,53 +352,45 @@ float: left;
     animation-name: slideIn;
     animation-duration: 0.4s
 }
-
-/* The Close Button */
-.close {
+.modal-close {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
-.close:hover,
-.close:focus {
+.modal-close:hover,
+.modal-close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
-
-
 .modal-header {
     padding: 2px 16px;
     background-color: #ff304c;
     color: white;
 }
-
-.modal-body {padding: 2px 16px;}
-
+.modal-body {
+	padding: 2px 16px;
+}
 .modal-footer {
     padding: 2px 16px;
     background-color: #ff304c;
     color: white;
 }
 
-/* Add Animation */
 @-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
-    to {bottom: 20%; opacity: 1}
+    from {top: -300px; opacity: 0} 
+    to {top: 20%; opacity: 1}
 }
-
 @keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 20%; opacity: 1}
+    from {top: -300px; opacity: 0}
+    to {top: 20%; opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}
 }
-
 @keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}

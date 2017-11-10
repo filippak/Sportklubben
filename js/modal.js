@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     let $modal = $(".modal");
     let $btn = jQuery(".registration");
-    let $close = jQuery(".close");
+    let $close = jQuery(".modal-close");
 
     $btn.click(function() {
         $modal.css("display","block");
@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
     $(window).click(function(e) {
         if( $(e.target).is($modal)) {
             $modal.css("display", "none");
-            
         }
     });
 });
