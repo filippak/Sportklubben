@@ -54,32 +54,48 @@
 				<?php the_post_thumbnail( 'full' ); ?>
 			<?php else : ?>
 				<img src="<?php echo get_template_directory_uri() . '/images/Sliderfoton/pexels-photo-221210.jpg'?>" alt="Fallback Hero">
-				<div class = "activityInformation">test</div>
 			<?php endif ?>
 			<!--Date-->
 			<div class="activityInfo ">
 				<?php if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
-						<span class="circleDate-dayTex"><?php echo date_i18n("D", $startDate);?></span>
-						<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
-						<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?> </span>
-						<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+
+							<!-- <div class = "circleDate-singleDateLeftColumn">
+							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
+							</div>
+
+							<div class = "circleDate-singleDateRightColumn">
+							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
+							<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+						</div> -->
+						<div class = "circleDate-dayMonthSingle">
+						<span class="circleDate-dayNumberSingle"><?php echo date_i18n("d", $startDate);?></span>
+						<span class="circleDate-monthSingle"><?php echo date_i18n("M", $startDate);?></span>
+						<span class="circleDate-yearSingle"><?php echo date_i18n("Y", $startDate);?></span>
+						</div>
 					</div>
+					</time>
 				<?php else: ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
-						<div class = "dateWrapper">
+
+
+
+
 							<div class = "circleDate-dayMonth">
-								<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
-								<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
-								<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
+							<span class="circleDate-dayNumber"><?php echo date_i18n("d", $startDate);?></span>
+							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
+							<span class="circleDate-year"><?php echo date_i18n("Y", $startDate);?></span>
 							</div>
-							<p style="position:absolute; top: 50%; left: 50%; transform: translate(-30%, -50%); margin: 0; color: white;">-</p>
-							<div class ="circleDate-dayMonth">
-								<span class="circleDate-dayNumber"><?php echo date_i18n("j", $endDate);?></span>
-								<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
-								<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
-							</div>
+						<p class = "circleDate-dateStreck">-</p>
+						<div class ="circleDate-dayMonth">
+							<span class="circleDate-dayNumber"><?php echo date_i18n("d", $endDate);?></span>
+							<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
+							<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
 						</div>
+
+
+
+
 					</div>
 				<?php endif; ?>
 
