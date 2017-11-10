@@ -313,7 +313,10 @@ Single Aktivitet
 	.circleDate-dayNumber,
 	.circleDate-dayText,
 	.circleDate-month,
-	.circleDate-year {
+	.circleDate-year,
+	.circleDate-yearSingle,
+	.circleDate-dayNumberSingle,
+	.circleDate-monthSingle {
 	text-align: center;
 	line-height: 1.0;
 	display: block;
@@ -326,17 +329,49 @@ width: 50%;
 padding-top: 0.8em;
 float: left;
 	}
-	.dateWrapper{
-		height: 2.9em;
-		padding-left: 0.2em;
-		padding-right: 0.2em;
+	.circleDate-dayMonthSingle{
+width: 100%;
+padding-top: 0.6em;
+float: left;
 	}
+	.circleDate-dayNumberSingle{
+		font-size: 1.9em;
+		letter-spacing: -0.1em;
+		padding-right: 0.1em;
+		margin-bottom: -0.1em;
+	}
+	.circleDate-monthSingle{
+		font-size: 0.5125em;
+		text-transform: uppercase;
+	}
+	.circleDate-yearSingle{
+		font-size: 0.4525em;
+	}
+.dateStreck{
+	position:absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	color: white;"
+}
+	/*.circleDate-singleDateRightColumn{
+width: 33%;
+padding-top: 0.8em;
+float: left;
+	}
+	.circleDate-singleDateLeftColumn{
+width: 66%;
+padding-top: 0.8em;
+float: left;
+	}*/
+
 	.circleDate-dayText{
 		font-size: 0.6125em;
 		padding-top: 0.6em;
 	}
 	.circleDate-dayNumber{
-		font-size: 1.6em;
+		font-size: 1.3em;
 		letter-spacing: -0.1em;
 		padding-right: 0.1em;
 		margin-bottom: -0.1em;
