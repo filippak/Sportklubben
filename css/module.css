@@ -388,14 +388,15 @@ Single Aktivitet
     animation-duration: 0.4s
 }
 .modal-close {
-    color: white;
+    color: #12abdb;
     float: right;
     font-size: 28px;
-    font-weight: bold;
+	font-weight: bold;
+	transition: color 0.3s ease;
 }
 .modal-close:hover,
 .modal-close:focus {
-    color: #000;
+    color: #0070ad;
     text-decoration: none;
     cursor: pointer;
 }
