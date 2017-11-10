@@ -76,7 +76,6 @@
 					</div>
 					</time>
 				<?php else: ?>
-
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
 
 
@@ -144,6 +143,23 @@
 						<i style="margin-left:2px; margin-right: 8px;"class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
 					</p>
 				</div>
+				<button class="registration">Anmmälan</button>
+			</div>
+			<div id="registrationModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2>Modal Header</h2>
+					</div>
+					<div class="modal-body">
+						<p>Some text in the Modal Body</p>
+						<p>Some other text...</p>
+					</div>
+					<div class="modal-footer">
+						<h3>Modal Footer</h3>
+					</div>
+			  	</div>
 			</div>
 
 	</div>
