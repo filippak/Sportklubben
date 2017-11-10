@@ -379,13 +379,17 @@ Single Aktivitet
 .modal-content {
     position: fixed;
     top: 20%;
-    background-color: #fefefe;
+    background-color: #ececec;
 	width: 60%;
 	left: 20%;
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
     animation-name: slideIn;
-    animation-duration: 0.4s
+	animation-duration: 0.4s;
+	background-image: url(http://localhost:8080/sportklubben/wp-content/themes/Sportklubben/images/redBlueShape.png);
+	background-position: center bottom;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
 }
 .modal-close {
     color: #12abdb;
@@ -402,7 +406,7 @@ Single Aktivitet
 }
 .modal-header {
     padding: 2px 16px;
-    background-color: #ff304c;
+    /* background-color: #ff304c; */
     color: white;
 }
 .modal-body {
@@ -410,7 +414,7 @@ Single Aktivitet
 }
 .modal-footer {
     padding: 2px 16px;
-    background-color: #ff304c;
+    /* background-color: #ff304c; */
     color: white;
 }
 
