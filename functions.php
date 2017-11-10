@@ -140,7 +140,7 @@
                         </a>
                     </h2>
                     <?php 
-                        if (strtotime($thisStartDate) < strtotime('30 days'))
+                        if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse")
                         {
                             if($weekToday == $weekTest) 
                             {
