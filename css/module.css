@@ -309,6 +309,7 @@ Single Aktivitet
 	padding-top: 0.6em;
 	float: left;
 }
+
 .circleDate-dayNumberSingle{
 	font-size: 1.9em;
 	letter-spacing: -0.1em;
@@ -358,10 +359,23 @@ Single Aktivitet
 .circleDate-year{
 	font-size: 0.3525em;
 }
+.circleDate-recurringMonthly,
+.circleDate-recurringDaily{
+	text-align: center;
+	width: 100%;
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+}
+.circleDate-recurringMonthly{
+	font-size : 0.7em;
+}
 
 /* The Popup Modal*/
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -419,7 +433,7 @@ Single Aktivitet
 }
 
 @-webkit-keyframes slideIn {
-    from {top: -300px; opacity: 0} 
+    from {top: -300px; opacity: 0}
     to {top: 20%; opacity: 1}
 }
 @keyframes slideIn {
@@ -428,10 +442,10 @@ Single Aktivitet
 }
 
 @-webkit-keyframes fadeIn {
-    from {opacity: 0} 
+    from {opacity: 0}
     to {opacity: 1}
 }
 @keyframes fadeIn {
-    from {opacity: 0} 
+    from {opacity: 0}
     to {opacity: 1}
 }

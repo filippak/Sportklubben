@@ -57,7 +57,40 @@
 			<?php endif ?>
 			<!--Date-->
 			<div class="activityInfo ">
-				<?php if(($endDate && $startDate === $endDate) || !$endDate): ?>
+
+				<?php if ($eventType === aterkommande):
+					$recurring = get_field('aterkommande');
+					switch ($recurring) {
+						case 'daily': ?>
+						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
+
+
+							<span class="circleDate-recurringDaily"><?php echo "Every day";?></span>
+
+
+						</div>
+						</time>
+
+
+							<?php break;
+						case 'weekly': ?>
+
+						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
+
+
+							<span class="circleDate-recurringMonthly"><?php echo "Every ". date_i18n("l", $startDate); ;?></span>
+
+
+						</div>
+						</time>
+
+							<?php break;
+						case 'monthly':?>
+				<?php } else:
+
+
+
+				if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
 
 							<!-- <div class = "circleDate-singleDateLeftColumn">
@@ -97,41 +130,8 @@
 
 
 					</div>
-				<?php endif; ?>
+				<?php endif; endif; ?>
 
-			 <!-- <?php if($endDate && $startDate === $endDate): ?>
-
-					<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
-						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?></span>
-						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?></span>
-						<span class="calendarDate-month"><?php echo date_i18n("M", $startDate);?></span>
-						<span class="calendarDate-year"><?php echo date_i18n("Y", $startDate);?></span>
-					</time>
-				<?php else: ?>
-					<time datetime="<?php echo date_i18n($dateformatstring, $startDate);?>" class="calendarDate">
-						<span class="calendarDate-weekday"><?php echo date_i18n("D", $startDate);?> - <?php echo date_i18n("D", $endDate);?></span>
-						<span class="calendarDate-day"><?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $endDate);?></span>
-						<span class="calendarDate-month">
-							<?php
-								if(date_i18n("M", $startDate) !== date_i18n("M", $endDate)):
-									echo date_i18n("M", $startDate);?>-<?php echo date_i18n("M", $endDate);
-								else:
-									echo date_i18n("M", $startDate);
-								endif;
-							?>
-						</span>
-						<span class="calendarDate-year">
-							<?php
-								if(date_i18n("Y", $startDate) !== date_i18n("Y", $endDate)):
-									echo date_i18n("Y", $startDate);?> - <?php echo date_i18n("Y", $endDate);
-								else:
-									echo date_i18n("Y", $startDate);
-								endif;
-							?>
-						</span>
-					</time>
-				<?php endif; ?>
-			 -->
 
 				<!--Titel-->
 				<div class="activityTitleTime">
