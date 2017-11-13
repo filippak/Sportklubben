@@ -143,7 +143,7 @@
 						<i style="margin-left:2px; margin-right: 8px;"class="fa fa-map-marker" aria-hidden="true"></i><?php echo $address; ?>
 					</p>
 				</div>
-				<button class="registration">Anmmälan</button>
+				<button class="registration">anmälan</button>
 			</div>
 			<div id="registrationModal" class="modal">
 				<!-- Modal content -->
