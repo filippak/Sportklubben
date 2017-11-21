@@ -1,4 +1,4 @@
-=== Generic ===
+=== Sportklubben Stockholm ===
 
 Contributors: bhadaway
 Theme link: https://generic.tools/

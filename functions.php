@@ -209,9 +209,13 @@
             'before_title' => '<h3 class="widget-title">',
             'after_title' => '</h3>',
         ) );
-
-
     }
+
+    function checkPlugins()
+    {
+        echo '<a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download Profile builder!<a>';
+    }
+    add_action( 'admin_notices', 'checkPlugins' );
 
     add_action( 'comment_form_before', 'generic_enqueue_comment_reply_script' );
     function generic_enqueue_comment_reply_script()
