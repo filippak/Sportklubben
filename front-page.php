@@ -2,7 +2,7 @@
 <?php
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if (!is_plugin_active("profile-builder/index.php")): ?>
-  <p> The profile builder plugin must be activated for this theme. </P>
+  <p> The profile builder plugin must be activated for this theme. <a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Profile builder!<a></P>
 <?php else:
 get_header(); ?>
 

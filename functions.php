@@ -213,7 +213,10 @@
 
     function checkPlugins()
     {
-        echo '<a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download Profile builder!<a>';
+        if (!is_plugin_active("profile-builder/index.php"))
+        {
+            echo '<a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download and Activate Profile builder!<a>';
+        } 
     }
     add_action( 'admin_notices', 'checkPlugins' );
 
