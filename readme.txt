@@ -1,11 +1,11 @@
 === Sportklubben Stockholm ===
 
-Contributors: 
-Theme link: https://generic.tools/
-Requires at least: 4.8
-Tested up to: 4.8
+Contributors: Ellen Andersson, Hedvig Lindberg, Lina Parling, Ludwig Sidenmark, Viktor Sucksdorff, Matilda Vallgren, Johan Wikström
 
-A theme for Sportklubben Stockholm
+Requires at least Wordpress: 4.8
+Tested up to Wordpress: 4.8
+
+A WordPress theme for Sportklubben Stockholm
 == Description ==
 
 TODO
