@@ -1,19 +1,15 @@
 <?php get_header();?>
-
 <style type="text/css">
-
 .acf-map {
 	width: 100%;
 	height: 400px;
 	border: #ccc solid 1px;
 	margin: 20px 0;
 }
-
 /* fixes potential theme css conflict */
 .acf-map img {
    max-width: inherit !important;
 }
-
 </style>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmXiAGHZf5ubJyzKPoJA1RURCB0h1uFYM"></script>
 
@@ -21,24 +17,18 @@
 	$contact = get_field('kontakt');
 	$contactNo = get_field('kontaktnummer');
 	$contactMail = get_field('kontaktemail');
-
 	$eventType = get_field('engangsforetelse_eller_aterkommande_aktivitet');
-
 	$location = get_field('karta');
 	if($location):
 		$address = $location['address'];
 	endif;
-
 	$img = get_field('bild');
-
 	$website = get_field('hemsida');
-
 	$startDate = strtotime(get_field('startdatum'));
 	$endDate =strtotime(get_field('slutdatum'));
 	$startTime = get_field('starttid');
 	$endTime = get_field('sluttid');
 	$noPeople = get_field('antal');
-
 	$dateformatstring = "d F, Y";
 	$unixtimestampStart = strtotime($startDate);
 
@@ -57,7 +47,6 @@
 			<?php endif ?>
 			<!--Date-->
 			<div class="activityInfo ">
-
 				<?php if ($eventType === aterkommande):
 					$recurring = get_field('aterkommande');
 					switch ($recurring) {
@@ -70,7 +59,6 @@
 
 							<?php break;
 						case 'weekly': ?>
-
 						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
 						<span class="circleDate-recurringWeekly"><?php echo "Every ". date_i18n("l", $startDate); ;?></span>
 						</div>
@@ -107,7 +95,6 @@
 
 				if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
-
 							<!-- <div class = "circleDate-singleDateLeftColumn">
 							<span class="circleDate-dayNumber"><?php echo date_i18n("j", $startDate);?></span>
 							</div>
@@ -125,10 +112,6 @@
 					</time>
 				<?php else: ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-repeat: round ">
-
-
-
-
 							<div class = "circleDate-dayMonth">
 							<span class="circleDate-dayNumber"><?php echo date_i18n("d", $startDate);?></span>
 							<span class="circleDate-month"><?php echo date_i18n("M", $startDate);?></span>
@@ -140,14 +123,8 @@
 							<span class="circleDate-month"><?php echo date_i18n("M", $endDate);?></span>
 							<span class="circleDate-year"><?php echo date_i18n("Y", $endDate);?></span>
 						</div>
-
-
-
-
 					</div>
 				<?php endif; endif; ?>
-
-
 				<!--Titel-->
 				<div class="activityTitleTime">
 					<h1 class="activityTitleTime-title">
@@ -162,7 +139,7 @@
 			</div>
 			<div id="registrationModal" class="modal">
 				<!-- Modal content -->
-				<div class="modal-content">
+				<div class="modal-content" style="background-image: url(<?php echo get_template_directory_uri() . '/images/redBlueShape.png' ?>)">
 					<div class="modal-header">
 						<span class="modal-close">&times;</span>
 						<h2>Modal Header</h2>
@@ -176,21 +153,17 @@
 					</div>
 			  	</div>
 			</div>
-
 	</div>
 		<div class="entry-content singleActivityInfo">
-
 			<!-- Återkommmande-->
 			<p>
 				<?php
 					if($eventType == "engangsforeteelse") :
-
 					else :
 						?>
 						Återkommande: <br><?php
 						//echo $eventType;
 						$recurring = get_field('aterkommande');
-
 						switch ($recurring) {
 							case 'daily':
 								echo "Dagligen";
@@ -199,7 +172,6 @@
 								echo "Veckovis";
 								break;
 							case 'monthly':
-
 								$field = get_field_object("occurence");
 								$value = $field['value'];
 								$labelDay = $field['choices'][$value];
