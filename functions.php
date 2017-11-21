@@ -62,7 +62,7 @@
                 'compare' => 'EXISTS',
             ),
         ),);
-        $wp_query = new WP_Query($args); 
+        $wp_query = new WP_Query($args);
         $varcheckweek = 0;
         $varcheckmonth = 0;
         $varcheckelse = 0;
@@ -70,9 +70,9 @@
         $dateToday = new DateTime(date(Y.m.d));
         $weekToday = $dateToday->format("W");
         $varcheck = 0;
-    
-    
-        while ($wp_query->have_posts()) : $wp_query->the_post(); 
+
+
+        while ($wp_query->have_posts()) : $wp_query->the_post();
         $eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
         $thisEndDate = get_field('slutdatum');
         $startDate = strtotime(get_field('startdatum'));
@@ -80,20 +80,20 @@
         $dateTest = new DateTime(get_field('startdatum'));
         $weekTest = $dateTest->format("W");
         $thisStartDate = get_field('startdatum');
-    
+
         if(($eventTypeForThisFront == "engangsforeteelse" &&$thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
             $thisEndDate =strtotime($thisEndDate);
             if ($thisStartDate <= strtotime('30 days') && $varcheckmonth == 0) {
                 if ($weekToday == $weekTest && $varcheckweek == 0) {
-?> 	
+?>
                     <h2>Den här veckan:</h2>
-<?php 
+<?php
                     $varcheckweek++;
                 }
                 elseif($weekToday !== $weekTest){
 ?>
                     <h2>Kommande månaden:</h2>
-<?php	
+<?php
                     $varcheckmonth++;
                 }
             }
@@ -103,8 +103,8 @@
                 $varcheckelse++;
 ?>
                     <h2>Ännu senare: </h2>
-<?php 
-                } 
+<?php
+                }
             }
 ?>
             <div class = frontEvent>
@@ -119,7 +119,7 @@
                         <?php else:?>
                             <p>
                                 <?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
-                                <?php 
+                                <?php
                                     if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
                                         echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
                                     else:
@@ -139,12 +139,12 @@
                             <?php the_title(); ?>
                         </a>
                     </h2>
-                    <?php 
+                    <?php
                         if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse")
                         {
-                            if($weekToday == $weekTest) 
+                            if($weekToday == $weekTest)
                             {
-                            
+
                                 echo ("Den här veckan!");
                             }
                             else{
@@ -152,14 +152,14 @@
                             }
                         }
                         ?>
-    
+
                     <?php the_excerpt(); ?>
-                    
+
                 </div>
                 <button class="frontEvent-readMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
             </div>
             <hr>
-        <?php 
+        <?php
         $varcheck++;
         endif;
         endwhile;
@@ -490,10 +490,10 @@
 					'allorany' => 'all',
 				),
 				'choices' => array (
-					'daily' => 'Dagligen',
-					'weekly' => 'Veckovis',
-					'monthly' => 'Månadsvis',
-					'yearly' => 'Årligen',
+					'daily' => 'daily',
+					'weekly' => 'weekly',
+					'monthly' => 'monthly',
+					'yearly' => 'yearly',
 				),
 				'other_choice' => 0,
 				'save_other_choice' => 0,
@@ -517,11 +517,11 @@
 					'allorany' => 'all',
 				),
 				'choices' => array (
-					'first' => 'Den första',
-					'second' => 'Den andra',
-					'third' => 'Den tredje',
-					'fourth' => 'Den fjärde',
-					'last' => 'Sista',
+					'first' => 'The first',
+					'second' => 'The second',
+					'third' => 'The third',
+					'fourth' => 'The fourth',
+					'last' => 'The last',
 				),
 				'other_choice' => 0,
 				'save_other_choice' => 0,
@@ -547,13 +547,13 @@
 					'allorany' => 'all',
 				),
 				'choices' => array (
-					'mond' => 'måndagen',
-					'tues' => 'tisdagen',
-					'wednes' => 'onsdagen',
-					'thurs' => 'torsdagen',
-					'fri' => 'fredagen',
-					'satur' => 'lördagen',
-					'sun' => 'söndagen',
+					'mond' => 'monday',
+					'tues' => 'tuesday',
+					'wednes' => 'wednesday',
+					'thurs' => 'thursday',
+					'fri' => 'friday',
+					'satur' => 'saturday',
+					'sun' => 'sunday',
 				),
 				'default_value' => '',
 				'layout' => 'horizontal',

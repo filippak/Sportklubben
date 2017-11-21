@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+
+
+<?php if (!is_plugin_active("profile-builder/index.php")): ?>
+  <p> The profile builder plugin must be activated for this theme. </P>
+<?php else:
+get_header(); ?>
 
 
 <main class="l-content">
@@ -9,4 +14,5 @@
     <?php get_template_part( 'nav', 'below' ); ?>
 </main>
 <?php  get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php get_footer();
+endif; ?>
