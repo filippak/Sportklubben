@@ -54,17 +54,45 @@
 						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
 							<span class="circleDate-recurringDaily"><?php echo "Every day";?></span>
 						</div>
-						</time>
+
+
+
 							<?php break;
 						case 'weekly': ?>
 						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
-							<span class="circleDate-recurringMonthly"><?php echo "Every ". date_i18n("l", $startDate); ;?></span>
+						<span class="circleDate-recurringWeekly"><?php echo "Every ". date_i18n("l", $startDate); ;?></span>
 						</div>
-						</time>
 
-							<?php break;
-						case 'monthly':?>
-				<?php } else:
+
+						<?php break;
+						case 'monthly':
+						$field = get_field_object("occurence");
+						$value = $field['value'];
+						$occurrence = $field['choices'][$value];
+
+
+						$field = get_field_object("manadsvis");
+						$value = $field['value'];
+						$labelDay = $field['choices'][$value];
+						?>
+
+						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
+						<span class="circleDate-recurringMonthly"><?php echo $occurrence . " " . $labelDay . " each month" ;?></span>
+						</div>
+
+						<?php break;
+						case 'yearly': ?>
+
+						<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
+						<span class="circleDate-recurringYearly"><?php echo date_i18n("M", $startDate) . " " . date_i18n("d", $startDate) . " every year" ;?></span>
+						</div>
+
+
+
+				<?php  break;} else:
+
+
+
 				if(($endDate && $startDate === $endDate) || !$endDate): ?>
 					<div class="timeContainer" style=" background-image:url(<?php echo get_template_directory_uri() . '/images/Picture1.png' ?>); background-size: contain; ">
 							<!-- <div class = "circleDate-singleDateLeftColumn">

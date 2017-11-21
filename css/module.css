@@ -360,7 +360,9 @@ Single Aktivitet
 	font-size: 0.3525em;
 }
 .circleDate-recurringMonthly,
-.circleDate-recurringDaily{
+.circleDate-recurringDaily,
+.circleDate-recurringWeekly,
+.circleDate-recurringYearly{
 	text-align: center;
 	width: 100%;
 	position:absolute;
@@ -369,8 +371,16 @@ Single Aktivitet
 	transform: translate(-50%, -50%);
 	margin: 0;
 }
-.circleDate-recurringMonthly{
+.circleDate-recurringWeekly{
 	font-size : 0.7em;
+}
+.circleDate-recurringMonthly{
+	font-size: 0.625em;
+}
+.circleDate-recurringYearly{
+	padding-right: 4%;
+	padding-left: 4%;
+	font-size : 0.75em;
 }
 
 /* The Popup Modal*/
