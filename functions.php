@@ -214,7 +214,7 @@
     {
         if (!is_plugin_active("profile-builder/index.php"))
         {
-            echo '<a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download and Activate Profile builder!<a>';
+            echo '<div class="error notice"><p>The theme Sportklubben requires the plugin Profile Builder. <a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download and Activate Profile builder.<a></p></div>';
         }
     }
     add_action( 'admin_notices', 'checkPlugins' );
