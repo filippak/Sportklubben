@@ -62,14 +62,13 @@
             ),
         ),);
         $wp_query = new WP_Query($args);
-        $varcheckweek = 0;
-        $varcheckmonth = 0;
-        $varcheckelse = 0;
+        $eventThisWeek = false;
+        $eventThisMonth = false;
+        $eventLater = false;
         $posts = get_posts( $args );
         $dateToday = new DateTime(date(Y.m.d));
         $weekToday = $dateToday->format("W");
-        $varcheck = 0;
-
+        $eventExists = false;
 
         while ($wp_query->have_posts()) : $wp_query->the_post();
         $eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
@@ -80,29 +79,21 @@
         $weekTest = $dateTest->format("W");
         $thisStartDate = get_field('startdatum');
 
-        if(($eventTypeForThisFront == "engangsforeteelse" &&$thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
+        if(($eventTypeForThisFront == "engangsforeteelse" && $thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
             $thisEndDate =strtotime($thisEndDate);
-            if ($thisStartDate <= strtotime('30 days') && $varcheckmonth == 0) {
-                if ($weekToday == $weekTest && $varcheckweek == 0) {
-?>
-                    <h2>Den här veckan:</h2>
-<?php
-                    $varcheckweek++;
+            if ($thisStartDate <= strtotime('30 days') && $eventThisMonth == false) {
+                if ($weekToday == $weekTest && $eventThisWeek == false) {
+                    echo "<h2>Den här veckan:</h2>";
+                    $eventThisWeek = true;
                 }
-                elseif($weekToday !== $weekTest){
-?>
-                    <h2>Kommande månaden:</h2>
-<?php
-                    $varcheckmonth++;
+                elseif($weekToday !== $weekTest) {
+                    echo "<h2>Kommande månaden:</h2>";
+                    $eventThisMonth = true;
                 }
-            }
-            if(strtotime($thisStartDate) > strtotime('30 days') && $varcheckelse == 0)
-            {
-                if($varcheckmonth > 0 || $varcheckweek > 0){
-                $varcheckelse++;
-?>
-                    <h2>Ännu senare: </h2>
-<?php
+            } elseif(strtotime($thisStartDate) > strtotime('30 days') && $eventLater == false) {
+                if($eventThisMonth == true || $eventThisWeek == true) {
+                    $eventLater = true;
+                    echo "<h2>Senare:</h2>";
                 }
             }
 ?>
@@ -115,22 +106,20 @@
                             <br>
                             <?php echo date_i18n("D", $startDate);?>
                         </p>
-                        <?php else:?>
-                            <p>
-                                <?php echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);?>
-                                <?php
-                                    if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)):
-                                        echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
-                                    else:
-                                        echo strtoupper(date_i18n("M", $startDate));
-                                    endif;
-                                ?>
-                                <br>
-                                <?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
-                            </p>
-                        <?php
-                            endif;
-                        ?>
+                    <?php else:?>
+                        <p>
+                            <?php 
+                                echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);
+                                if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)) {
+                                    echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
+                                } else {
+                                    echo strtoupper(date_i18n("M", $startDate));
+                                }
+                            ?>
+                            <br>
+                            <?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
+                        </p>
+                    <?php endif; ?>
                 </div>
                 <div class ="frontEvent-content">
                     <h2>
@@ -139,8 +128,7 @@
                         </a>
                     </h2>
                     <?php
-                        if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse")
-                        {
+                        if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse") {
                             if($weekToday == $weekTest)
                             {
 
@@ -150,21 +138,19 @@
                                 echo ("Inom en månad!");
                             }
                         }
-                        ?>
-
-                    <?php the_excerpt(); ?>
-
+                        the_excerpt();
+                    ?>
                 </div>
                 <button class="frontEvent-readMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
             </div>
             <hr>
         <?php
-        $varcheck++;
+        $eventExists = true;
         endif;
         endwhile;
-        if($varcheck == 0) :
-            echo "<div class='frontEvent-warning'><p><strong>Det finns tyvärr inga inplanerade aktiviteter för tillfället.</strong> <br/><br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!</p></div>";
-        endif;
+        if($eventExists == false) {
+            echo "<div class='frontEvent-warning'><p><strong>Det finns tyvärr inga inplanerade aktiviteter för tillfället.</strong> <br/><br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!</p></div>";            
+        }
     }
 
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
