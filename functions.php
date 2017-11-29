@@ -62,95 +62,94 @@
             ),
         ),);
         $wp_query = new WP_Query($args);
+
+        $eventExists = false;
         $eventThisWeek = false;
         $eventThisMonth = false;
         $eventLater = false;
+
         $posts = get_posts( $args );
         $dateToday = new DateTime(date(Y.m.d));
         $weekToday = $dateToday->format("W");
-        $eventExists = false;
 
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-        $eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
-        $thisEndDate = get_field('slutdatum');
-        $startDate = strtotime(get_field('startdatum'));
-        $todaysDate = date(Y.m.d);
-        $dateTest = new DateTime(get_field('startdatum'));
-        $weekTest = $dateTest->format("W");
-        $thisStartDate = get_field('startdatum');
+        while ($wp_query->have_posts()) : 
+            $wp_query->the_post();
+            $eventTypeForThisFront = get_field('engangsforetelse_eller_aterkommande_aktivitet');
+            $thisEndDate = get_field('slutdatum');
+            $startDate = strtotime(get_field('startdatum'));
+            $todaysDate = date(Y.m.d);
+            $dateTest = new DateTime(get_field('startdatum'));
+            $weekTest = $dateTest->format("W");
+            $thisStartDate = get_field('startdatum');
 
-        if(($eventTypeForThisFront == "engangsforeteelse" && $thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
-            $thisEndDate =strtotime($thisEndDate);
-            if ($thisStartDate <= strtotime('30 days') && $eventThisMonth == false) {
-                if ($weekToday == $weekTest && $eventThisWeek == false) {
-                    echo "<h2>Den här veckan:</h2>";
-                    $eventThisWeek = true;
-                }
-                elseif($weekToday !== $weekTest) {
-                    echo "<h2>Kommande månaden:</h2>";
-                    $eventThisMonth = true;
-                }
-            } elseif(strtotime($thisStartDate) > strtotime('30 days') && $eventLater == false) {
-                if($eventThisMonth == true || $eventThisWeek == true) {
-                    $eventLater = true;
-                    echo "<h2>Senare:</h2>";
-                }
-            }
+            if(($eventTypeForThisFront == "engangsforeteelse" && $thisStartDate >= $todaysDate) || ($eventTypeForThisFront == "aterkommande" && $thisStartDate <= $todaysDate && $thisEndDate >= $todaysDate) ) :
+                $thisEndDate =strtotime($thisEndDate);
+                if ($thisStartDate <= strtotime('30 days') && $eventThisMonth == false) :
+                    if ($weekToday == $weekTest && $eventThisWeek == false):
+                        echo "<h2>Den här veckan:</h2>";
+                        $eventThisWeek = true;
+                    elseif($weekToday !== $weekTest) :
+                        echo "<h2>Kommande månaden:</h2>";
+                        $eventThisMonth = true;
+                    endif;
+                elseif(strtotime($thisStartDate) > strtotime('30 days') && $eventLater == false) :
+                    if($eventThisMonth == true || $eventThisWeek == true):
+                        $eventLater = true;
+                        echo "<h2>Senare:</h2>";
+                    endif;
+                endif;
 ?>
-            <div class = frontEvent>
-                <div class="frontEvent-date">
-                    <?php if(($thisEndDate && $startDate === $thisEndDate) || !$thisEndDate ): ?>
-                        <p>
-                            <?php echo date_i18n("j", $startDate);?>
-                            <?php echo strtoupper(date_i18n("M", $startDate));?>
-                            <br>
-                            <?php echo date_i18n("D", $startDate);?>
-                        </p>
-                    <?php else:?>
-                        <p>
-                            <?php 
-                                echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);
-                                if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)) {
-                                    echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
-                                } else {
-                                    echo strtoupper(date_i18n("M", $startDate));
-                                }
-                            ?>
-                            <br>
-                            <?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
-                        </p>
-                    <?php endif; ?>
+                <div class = frontEvent>
+                    <div class="frontEvent-date">
+                        <?php if(($thisEndDate && $startDate === $thisEndDate) || !$thisEndDate ) : ?>
+                            <p>
+                                <?php echo date_i18n("j", $startDate);?>
+                                <?php echo strtoupper(date_i18n("M", $startDate));?>
+                                <br>
+                                <?php echo date_i18n("D", $startDate);?>
+                            </p>
+                        <?php else:?>
+                            <p>
+                                <?php 
+                                    echo date_i18n("j", $startDate);?>-<?php echo date_i18n("j", $thisEndDate);
+                                    if(date_i18n("M", $startDate) !== date_i18n("M", $thisEndDate)) :
+                                        echo strtoupper(date_i18n("M", $startDate));?>-<?php echo strtoupper(date_i18n("M", $thisEndDate));
+                                    else :
+                                        echo strtoupper(date_i18n("M", $startDate));
+                                    endif;
+                                ?>
+                                <br>
+                                <?php echo date_i18n("D", $startDate);?>-<?php echo date_i18n("D", $thisEndDate);?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+                    <div class ="frontEvent-content">
+                        <h2>
+                            <a href="<?php the_permalink(); ?>" title="Read more">
+                                <?php the_title(); ?>
+                            </a>
+                        </h2>
+                        <?php
+                            if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse") :
+                                if($weekToday == $weekTest) :
+                                    echo ("Den här veckan!");
+                                else :
+                                    echo ("Inom en månad!");
+                                endif;
+                            endif;
+                            the_excerpt();
+                        ?>
+                    </div>
+                    <button class="frontEvent-readMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
                 </div>
-                <div class ="frontEvent-content">
-                    <h2>
-                        <a href="<?php the_permalink(); ?>" title="Read more">
-                            <?php the_title(); ?>
-                        </a>
-                    </h2>
-                    <?php
-                        if (strtotime($thisStartDate) < strtotime('30 days') && $eventTypeForThisFront == "engangsforeteelse") {
-                            if($weekToday == $weekTest)
-                            {
-
-                                echo ("Den här veckan!");
-                            }
-                            else{
-                                echo ("Inom en månad!");
-                            }
-                        }
-                        the_excerpt();
-                    ?>
-                </div>
-                <button class="frontEvent-readMore" onclick="location.href='<?php the_permalink() ?>';">Mer info</button>
-            </div>
-            <hr>
-        <?php
-        $eventExists = true;
-        endif;
+                <hr>
+<?php
+                $eventExists = true;
+            endif;
         endwhile;
-        if($eventExists == false) {
+        if($eventExists == false) :
             echo "<div class='frontEvent-warning'><p><strong>Det finns tyvärr inga inplanerade aktiviteter för tillfället.</strong> <br/><br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!</p></div>";            
-        }
+        endif;
     }
 
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
