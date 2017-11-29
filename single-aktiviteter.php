@@ -135,13 +135,29 @@ $unixtimestampStart = strtotime($startDate);
 			<div class="modal-content" style="background-image: url(<?php echo get_template_directory_uri() . '/images/redBlueShape.png' ?>)">
 				<div class="modal-header">
 					<span class="modal-close">&times;</span>
-					<h2>Modal Header</h2>
+					<div class="clearfix">
+						<?php  if(!is_user_logged_in() ): ?>
+						<h2 class="modal-header-left">Login</h2>
+						<div class="modal-header-right">
+							<p>or <a class="registrationBtn">register your account.</a></p>
+						</div>
+
+					<?php else: ?>
+						<h2 class="modal-header-left">Registration for <?php the_title(); ?> </h2>
+					<?php endif; ?>
+				</div>
 				</div>
 				<div class="modal-body">
-
+					<div class="login-body">
 					<?php  if(!is_user_logged_in() ):
 						echo do_shortcode("[wppb-login]");
-					else: ?>
+						?>
+					</div>
+					<div class="register-body">
+						<?php echo do_shortcode("[wppb-register]"); ?>
+					</div>
+
+					<?php else: ?>
 						<p>inloggad</p>
 
 					<?php endif; ?>

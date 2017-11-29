@@ -442,6 +442,33 @@ Single Aktivitet
     color: white;
 }
 
+.modal-header-left{
+	display: inline-block;
+	float: left;
+	margin-bottom: 0px;
+}
+
+.modal-header-right{
+	display: inline-block;
+	float: right;
+}
+
+.clearfix{
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.modal-header-right p{
+	margin-bottom: 0px;
+	margin-top: 55.273px;
+}
+
+.register-body{
+	display: none;
+}
+
+
 @-webkit-keyframes slideIn {
     from {top: -300px; opacity: 0}
     to {top: 20%; opacity: 1}

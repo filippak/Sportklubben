@@ -33,7 +33,6 @@
         //För Registrationmodal att visas
         wp_register_script('modal', get_template_directory_uri() . '/js/modal.js');
         wp_enqueue_script('modal');
-
         wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 
         //Swiping
@@ -216,7 +215,7 @@
         if (!is_plugin_active("profile-builder/index.php"))
         {
             echo '<a target="_blank" href="https://wordpress.org/plugins/profile-builder/">Download and Activate Profile builder!<a>';
-        } 
+        }
     }
     add_action( 'admin_notices', 'checkPlugins' );
 
