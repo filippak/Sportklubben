@@ -124,7 +124,10 @@ Front page
 }
 
 /* Style the tab content */
-div.tab button.active {
+.tab {
+	text-align: center;
+}
+.tab button.active {
     background-color: #2b0a43;
 }
 .tabcontent {
@@ -172,6 +175,17 @@ Front page event
 	flex: 1;
 	align-self: flex-end;
 	margin-top: 10px;
+}
+.frontEvent-warning {
+	text-align: center;
+}
+.frontEvent-warning p {
+	color: #ff304c;
+	font-size: 1.3em;
+}
+.frontEvent-warning strong {
+	font-weight: normal;
+	font-size: 1.5em;
 }
 
 /******************

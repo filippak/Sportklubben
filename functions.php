@@ -163,7 +163,7 @@
         endif;
         endwhile;
         if($varcheck == 0) :
-            echo "Det finns tyvärr inga inplanerade aktiviteter för tillfället. <br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!";
+            echo "<div class='frontEvent-warning'><p><strong>Det finns tyvärr inga inplanerade aktiviteter för tillfället.</strong> <br/><br/> Följ vårat nyhetsbrev (?) för att få uppdateringar när vi lägger upp nya aktiviteter!</p></div>";
         endif;
     }
 
